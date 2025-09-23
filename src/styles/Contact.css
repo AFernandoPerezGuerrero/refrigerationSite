@@ -1,0 +1,165 @@
+.cards-container {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin-top: 5vh;
+    padding-top: 7rem;
+}
+
+.cards-container h3 {
+    font-size: 4vh;
+    color: rgb(0, 0, 197);
+}
+
+.cards-container p {
+    font-size: 2.5vh;
+}
+
+.contact-subtitle-1 {
+    margin-top: 0vh;
+}
+
+.contact-subtitle-2 {
+    margin-top: 0vh;
+    margin-bottom: 7rem;
+}
+
+.contact-card {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(230, 230, 230, 0.781);
+    border-radius: 3vh;
+    align-self: center;
+    width: 40%;
+    height: auto;
+    margin-bottom: 5vh;
+    padding: 10vh;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(66, 66, 66, 0.144);
+    text-align: left;
+}
+
+.contact-card h3 {
+
+}
+
+.contact-input-items {
+    display: flex;
+    flex-direction: column;
+    text-align: left;    
+}
+
+.contact-input-items input {
+    border-radius: 4vh;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+    font-size: 2vh;
+    padding: 2vh;
+}
+
+.contact-input-items label {
+    font-size: 2.5vh;
+    margin-bottom: 2vh;
+}
+
+.contact-input-items textarea {
+  border-radius: 2vh; /* Coincide con tus inputs */
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 2vh;
+  padding: 2vh;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  resize: vertical;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 200;
+  padding-bottom: 40px; 
+}
+
+/* 2. El 'wrapper' para el contador */
+.char-counter-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 3rem; /* Añade el margen que tenías en los inputs */
+}
+
+/* 3. El contador */
+#char-counter {
+  position: absolute;
+  bottom: 15px; /* Ajusta este valor si es necesario */
+  right: 15px; /* Ajusta este valor si es necesario */
+  color: #666;
+  font-size: 1.5vh;
+  transition: color 0.3s ease;
+}
+
+/* 4. El estado rojo de "límite alcanzado" */
+#char-counter.limit-reached {
+  color: red;
+  font-weight: bold;
+}
+
+.contact-input-items .send-message-button {
+    width: 90%;
+    height: 4rem;
+    margin-top: 3vh;
+    align-self: center;
+    font-size: 2rem;
+    border: none;
+    border-radius: 3vh;
+    background-color: rgb(0, 0, 197);
+    color: white;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    transition: all 0.2s ease-out;
+}
+
+.contact-input-items .send-message-button:hover {
+    background-color: rgb(46, 46, 230);
+    cursor: pointer;
+    scale: 1.02;
+}
+
+.contact-input-items .send-message-button:active {
+    background-color: rgb(11, 11, 161);
+}
+
+.contact-input-items .icon-send {
+    position: relative;
+    top: 25%;
+    right: 45%;
+}
+
+.contact-input-items .button-text {
+    position: relative;
+    bottom: 45%;
+}
+
+.contact-methods {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 45%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-methods .contact-method {
+    background-color: rgba(230, 230, 230, 0.781);
+    border-radius: 3vh;
+    align-self: center;
+    width: 100%;
+    height: 1rem;
+    margin-bottom: 5vh;
+    padding: 5vh;
+
+}
+
+.contact-methods-title {
+    margin-bottom: 5rem;
+}
+
+

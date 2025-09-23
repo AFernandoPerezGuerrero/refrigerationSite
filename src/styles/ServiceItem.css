@@ -1,0 +1,86 @@
+.service-card {
+    display: block;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-items: center;
+    border-radius: 5%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s ease;
+    overflow: hidden;
+}
+
+.service-card:hover {
+    scale: 1.02;
+}
+
+.service-card-image {
+    width: 100%; 
+    height: auto;
+    display: block; 
+}
+
+.service-card-image:hover {
+    cursor: pointer;
+
+}
+
+.card-info {
+    display: block;
+}
+
+.card-info:hover {
+    cursor: pointer;
+}
+
+.service-card .item-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.service-card .service-icon {
+    position: relative;
+    right: 3vh;
+}
+
+.item-title h3 {
+    color: rgb(0, 0, 197);
+    font-size: 3vh;
+    font-weight: 500;
+    margin-top: 2vh;
+    position: relative;
+    right: auto;
+    left: auto;
+    margin-bottom: 1.5vh;
+}
+
+.service-card p {
+    color: black;
+    width: 60%;
+    font-size: 2.2vh;
+    font-weight: 300;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1vh;
+    height: auto;
+}
+
+.service-card a {
+    display: inline-block;
+    background-color: rgb(0, 0, 197);
+    font-size: 3vh;
+    padding: 1vh 10vh;
+    margin-top: 2vh;
+    margin-bottom: 5vh;
+    color: white;
+    border-radius: 4vh;
+    transition: all 0.5s ease;
+}
+
+.service-card a:hover {
+    cursor: pointer;
+    background-color: rgb(50, 50, 199);;
+}
