@@ -1,80 +1,215 @@
 import React, { useState } from "react";
 import '../styles/Contact.css';
-import { BsSend  } from "react-icons/bs";
+import { BsSend } from "react-icons/bs";
+import { FiPhone } from "react-icons/fi";
+import { FiMessageCircle } from "react-icons/fi";
+import { MdShare } from "react-icons/md";
+import { MdOutlineEmail } from "react-icons/md";
+import { FaFacebook } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaRegClock } from "react-icons/fa";
 
+// --- La función de validación va aquí, fuera del componente ---
+const validateForm = (formData) => {
+    const errors = {};
+    if (!formData.name.trim()) {
+        errors.name = "El nombre es obligatorio.";
+    }
+    if (!formData.email.trim()) {
+        errors.email = "El correo es obligatorio.";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+        errors.email = "El formato del correo no es válido.";
+    }
+    if (formData.message.length < 10) {
+        errors.message = "El mensaje debe tener al menos 10 caracteres.";
+    }
+    return errors;
+};
 
-function Contact() {
-const [message, setMessage] = useState("");
+// --- Tu componente empieza aquí ---
+function Contact({ setFormStatus }) {
+    // --- ESTADO UNIFICADO ---
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        message: "",
+    });
+    const [errors, setErrors] = useState({});
     const maxLength = 500;
 
-const handleMessageChange = (event) => {
-        setMessage(event.target.value);
+    // --- FUNCIÓN 'handleChange' ---
+    const handleChange = (e) => {
+        const { id, value } = e.target;
+        setFormData(prev => ({ ...prev, [id]: value }));
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        setErrors({});
+        
+        const validationErrors = validateForm(formData);
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors);
+            return;
+        }
+
+        setFormStatus("Enviando...");
+        try {
+            const response = await fetch('http://localhost:5000/api/messages', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                setFormStatus("¡Mensaje enviado con éxito!");
+                setFormData({ name: "", email: "", message: "" });
+            } else {
+                setFormStatus("Error: No se pudo enviar el mensaje.");
+            }
+        } catch (error) {
+            console.error("Error sending message:", error);
+            setFormStatus("Error de red. Intenta de nuevo.");
+        }
     };
 
     return (
         <div className='cards-container'>
-            <h3 claclassNamess='contact-title'>Contáctanos</h3>
+            <h3 className='contact-title'>Contáctanos</h3>
             <p className='contact-subtitle-1'>Estamos listos para ayudarte.</p>
             <p className='contact-subtitle-2'>Contáctanos por cualquiera de estos medios:</p>
             
             <div className='contact-card'>
                 <h3>Envíanos un mensaje</h3>
-
-            <form className='contact-input-items'>
-                <label id='name'>Nombre *</label>
-
-                <input type='text' 
+                <form className='contact-input-items' onSubmit={handleSubmit} noValidate>
+                    <label htmlFor='name'>Nombre *</label>
+                    <input 
+                       type='text' 
                        id='name'
-                       minLength={1}
-                       maxLength={80}
-                       placeholder="Nombre..."></input>
+                       value={formData.name}
+                       onChange={handleChange}
+                       placeholder="Nombre..."
+                       className={errors.name ? 'input-error' : ''}
+                    />
+                    {errors.name && <small className="error-message">{errors.name}</small>}
 
-                <label id='email'>Correo Electrónico *</label>
-                <input type='email' 
+                    <label htmlFor='email'>Correo Electrónico *</label>
+                    <input 
+                       type='email' 
                        id='email'
-                       maxLength={254}
-                       minLength={5}
-                        
-                       placeholder="correo@ejemplo.com"></input>
+                       value={formData.email}
+                       onChange={handleChange}
+                       placeholder="correo@ejemplo.com"
+                       className={errors.email ? 'input-error' : ''}
+                    />
+                    {errors.email && <small className="error-message">{errors.email}</small>}
 
-                <label id='message'>Mensaje *</label>
-                <div className="char-counter-wrapper">
-                <textarea id="message" 
+                    <label htmlFor='message'>Mensaje *</label>
+                    <div className="char-counter-wrapper">
+                        <textarea 
+                          id="message" 
                           name="user_message" 
                           rows="6"
-                          cols="50"
-                          maxLength={500}
-                          minLength={1}
-                          value={message}                 
-                          onChange={handleMessageChange} 
-                          placeholder="Escribe tu mensaje y nos contactaremos contigo lo más pronto posible."></textarea>
-                
-                <small id="char-counter" 
-                          className={message.length >= maxLength ? 'limit-reached' : ''}>
-                          {message.length}/{maxLength}
-                </small>
-                </div>
+                          maxLength={maxLength}
+                          value={formData.message} // <-- USA formData.message
+                          onChange={handleChange} 
+                          placeholder="Escribe tu mensaje y nos contactaremos lo más pronto posible."
+                          className={errors.message ? 'input-error' : ''}
+                        />
+                        <small 
+                          id="char-counter" 
+                          className={formData.message.length >= maxLength ? 'limit-reached' : ''} // <-- USA formData.message
+                        >
+                          {formData.message.length}/{maxLength} {/* <-- USA formData.message */}
+                        </small>
+                    </div>
+                    {errors.message && <small className="error-message">{errors.message}</small>}
 
-                <a className='send-message-button'>
-                    <BsSend className='icon-send'/>
-                    <div className="button-text">Enviar Mensaje</div>
-                </a>
-
-            </form>
-
+                    <button className='send-message-button' type="submit">
+                        <BsSend className='icon-send'/>
+                        <div className="button-text">Enviar Mensaje</div>
+                    </button>
+                </form>
             </div>
-            <div className="contact-methods">
-             <h3 className="contact-methods-title">Información de Contacto</h3>
-                <div className='contact-method'>
-                    <h2></h2>
-                </div>
-                <div className='contact-method'>
-                    <h2></h2>
-                </div>
-                <div className='contact-method'>
-                    <h2></h2>
-                </div>
 
+            <div className="contact-methods">
+                <svg width="0" height="0" style={{ position: 'absolute', zIndex: -1 }}>
+                    <defs>
+                        <linearGradient id="instagram-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#f09433" />
+                            <stop offset="50%" stopColor="#dc2743" />
+                            <stop offset="100%" stopColor="#bc1888" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <h3 className="contact-methods-title">Información de Contacto</h3>
+                
+                <div className='contact-method' id="contact-method-call">
+                    <a className="phone" id="icon">
+                    <FiPhone />
+                    </a>
+                    <div className="contact-info">
+                        <h4>Llamar</h4>
+                        <a>+57 301 852 0511</a>
+                    </div>
+                
+                </div>
+                <div className='contact-method' id="contact-method-ws">
+                    <a className="whatsapp" id="icon">
+                    <FiMessageCircle />
+                    </a>
+                    <div className="contact-info">
+                        <h4>WhatsApp</h4>
+                        <a>+57 301 852 0511</a>
+                    </div>
+                </div>
+                
+                <div className='contact-method' id="contact-method-email">
+                    <a className="email" id="icon">
+                    <MdOutlineEmail />
+                    </a>
+                    <div className="contact-info">
+                        <h4>Email</h4>
+                        <a>coolfixh.i@gmail.com</a>
+                    </div>
+                
+                </div>
+                <div className='contact-method' id="contact-method-social">
+                    <a className="social" id="icon">
+                    <MdShare />
+                    </a>
+                    <div className="contact-info">
+                        <h4>Redes Sociales</h4>
+                        <a className="social-icons">
+                            <FaFacebook className='facebook-icon' />
+                            
+                            <span className="instagram-gradient-icon">
+                            <FaInstagram/>
+                            </span>
+
+                        </a>
+                    </div>
+                </div>
+                    
+                <div className="contact-method office-hours">
+                    <a className="office-hours-title">
+                        <FaRegClock className="office-hours-icon"/>
+                        <h3>Horarios de Atención</h3>
+                    </a>
+
+                    <div className="office-hours-container">
+                        <div className="weekdays">
+                            <h4>Lunes - Viernes:</h4>
+                            <h4>Sábados:</h4>
+                            <h4>Domingos:</h4>
+                        </div>
+                        <div className="operations-time">
+                            <h4>8:00 AM - 6:00 PM</h4>
+                            <h4>8:00 AM - 6:00 PM</h4>
+                            <h4>Emergencias</h4>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )

@@ -5,6 +5,7 @@
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     margin-top: 5vh;
     padding-top: 7rem;
+    
 }
 
 .cards-container h3 {
@@ -38,10 +39,6 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(66, 66, 66, 0.144);
     text-align: left;
-}
-
-.contact-card h3 {
-
 }
 
 .contact-input-items {
@@ -104,7 +101,7 @@
 
 .contact-input-items .send-message-button {
     width: 90%;
-    height: 4rem;
+    height: 3rem;
     margin-top: 3vh;
     align-self: center;
     font-size: 2rem;
@@ -129,14 +126,76 @@
 
 .contact-input-items .icon-send {
     position: relative;
-    top: 25%;
+    top: 20%;
     right: 45%;
 }
 
 .contact-input-items .button-text {
     position: relative;
-    bottom: 45%;
+    bottom: 70%;
+    font-size: 3vh;
 }
+
+/* --- AÑADE ESTO AL FINAL DE TU 'Contact.css' --- */
+
+/* 1. Estilos para los inputs y textareas con error */
+.contact-input-items .input-error {
+  border: 2px solid #dc3545; /* Borde rojo cuando hay un error */
+}
+
+/* Para que la transición del borde sea suave, modifica tu regla existente así: */
+.contact-input-items input,
+.contact-input-items textarea {
+  border: 2px solid transparent; /* Añade un borde transparente por defecto */
+  transition: border-color 0.3s ease; /* Añade una transición */
+}
+
+/* 2. Estilo para el mensaje de texto del error */
+.error-message {
+  color: #dc3545;
+  font-size: 1.5vh;
+  margin-top: -2.5rem; /* Ajusta para que aparezca debajo del input */
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+
+/* 3. Estilos para la notificación personalizada (tipo "toast") */
+.form-notification {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  align-self: center;
+  transform: translateX(-50%);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  z-index: 3000;
+  font-size: 1.1rem;
+  animation: slideInUp 0.5s ease-out forwards;
+}
+
+.form-notification.success {
+  background-color: #28a745; /* Verde para éxito */
+}
+
+.form-notification.error {
+  background-color: #dc3545; /* Rojo para error */
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translate(-50%, 150px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+/** CONTACT METHODS **/
 
 .contact-methods {
     display: flex;
@@ -145,21 +204,175 @@
     width: 45%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 8rem;
 }
 
 .contact-methods .contact-method {
-    background-color: rgba(230, 230, 230, 0.781);
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    justify-content: left;
+    background-color: rgba(230, 230, 230, 0.637);
     border-radius: 3vh;
     align-self: center;
     width: 100%;
     height: 1rem;
     margin-bottom: 5vh;
     padding: 5vh;
+    text-shadow: none;
+    transition: all 0.3s ease;
+}
 
+.contact-method:hover {
+    cursor: pointer;
+    scale: 1.02;
 }
 
 .contact-methods-title {
     margin-bottom: 5rem;
 }
+
+.contact-info {
+    position: relative;
+    bottom: 2vh;
+    width: auto;
+}
+
+.contact-info h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.contact-info a {
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+/**  ICONS  **/
+
+.contact-method #icon {
+    color: white;
+    font-size: 2rem;
+    padding: 1rem;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+}
+
+.contact-method .phone {
+    background-color: rgb(1, 1, 161);
+}
+
+.contact-method .whatsapp {
+    background-color: #00bd1f;
+}
+
+.contact-method .email {
+    background-color: #cf001c;
+}
+
+.contact-method .social {
+    background-color: #cf00b3;
+}
+
+#contact-method-social .social-icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: 1vh;
+    align-items: center;
+    font-size: 2rem;
+    margin-top: 0.2rem;
+}
+
+.facebook-icon {
+    color: #3b5998;
+}
+
+.instagram-gradient-icon svg {
+  fill: url(#instagram-gradient);
+
+}
+
+.instagram-gradient-icon {
+    display: flex;
+    align-items: center;
+    font-size: 2.1rem;
+}
+
+/**/
+
+.contact-methods #contact-method-ws {
+    background-color: #4ffd8f60;
+}
+
+
+
+/*  CONTACT INFO DETAILS  */
+
+#contact-method-call a {
+    color: rgb(1, 1, 161);
+}
+
+#contact-method-ws a {
+    color: #00bd1f;
+    text-shadow: none;
+}
+
+#contact-method-email a {
+    color: #cf001c;
+}
+
+
+
+
+/* OFFICE HOURS INFO */
+
+.contact-methods .office-hours {
+    height: auto;
+    box-shadow: 0 0px 4px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+.contact-methods .office-hours:hover {
+    scale: none;
+    cursor: default;
+}
+
+.contact-methods .office-hours-title {
+    font-size: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    right: 15%;
+    gap: 1rem;
+    margin-bottom: 0;
+}
+
+.contact-methods .office-hours-icon {
+    color: rgb(1, 1, 161);
+}
+
+.office-hours-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10rem;
+    font-size: 1.6rem;
+    margin-top: -2rem;
+    margin-bottom: 2rem;
+}
+
+.office-hours-container h4 {
+        font-weight: 400;
+}
+
+.office-hours-container .operations-time {
+    justify-items: end;
+}
+
+
 
 
