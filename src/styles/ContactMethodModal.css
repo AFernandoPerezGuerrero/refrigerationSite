@@ -1,0 +1,72 @@
+.modal-overlay {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100vw; 
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  z-index: 2000; 
+  backdrop-filter: blur(5px); 
+  animation: fadeIn 0.3s ease-out;
+}
+.modal-content {
+  background: white; 
+  padding: 2rem; 
+  border-radius: 12px; 
+  width: 90%;
+  max-width: 450px; 
+  position: relative; 
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+.modal-close-button {
+  position: absolute; 
+  top: 15px; 
+  right: 20px; 
+  background: none; 
+  border: none;
+  font-size: 2.5rem; 
+  color: #aaa;
+  cursor: pointer; 
+  transition: color 0.2s;
+}
+.modal-close-button:hover { 
+    color: #000; 
+}
+
+.contact-modal-icon { 
+    font-size: 3rem; 
+    color: rgb(0, 0, 197); 
+    margin-bottom: 1rem; 
+}
+
+.modal-content h2 { 
+    font-size: 2rem; 
+    margin-bottom: 1rem; 
+}
+
+.modal-content p { 
+    color: #555; 
+    margin-bottom: 2rem;
+}
+
+.contact-modal-button {
+  display: inline-block; 
+  padding: 12px 24px; 
+  background-color: #25D366;
+  color: white; 
+  border-radius: 8px; 
+  text-decoration: none; 
+  font-weight: 600;
+  font-size: 1.2rem; 
+  transition: transform 0.2s;
+}
+
+.contact-modal-button:hover { 
+    transform: scale(1.05); 
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }

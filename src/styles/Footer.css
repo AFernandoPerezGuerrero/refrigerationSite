@@ -6,16 +6,16 @@
     background-color: rgb(1, 1, 161);
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     font-weight: 100;
-    height: 21vh;
+    height: 12rem;
 }
 
 .footer-title {
-    font-size: 4vh;
+    font-size: 2rem;
     position: relative;
     top: 40%;
     margin-top: 0;
     border-bottom: solid 1px white;
-    width: 60vh;
+    width: 30rem;
 }
 
 .coolfix-footer {
@@ -29,22 +29,21 @@
     justify-content: center;
     align-self: center;
     align-items: center;
-    gap: 2vh;
-    font-size: 1.8vh;
-    width: 100vh;
+    gap: 1rem;
+    font-size: 0.9rem;
+    width: 50rem;
 }
 
 
 .footer-subtitle-1 {
     border-bottom: solid 1px white;
-    width: 60vh;
+    width: 30rem;
 }
 
 .footer-subtitle-2 {
-    width: 60vh;
+    width: 35rem;
     position: relative;
     top: 5%;
-    right: 1vh;
-    margin-top: 1vh;
+    right: 16px;
 }
 

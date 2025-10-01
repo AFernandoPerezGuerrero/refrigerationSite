@@ -3,39 +3,39 @@
     display: flex;
     flex-direction: column;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    margin-top: 5vh;
-    padding-top: 7rem;
-    
+    margin-top: 1rem;
+    padding-top: 3rem;
+    scroll-margin-top: 5rem;
 }
 
 .cards-container h3 {
-    font-size: 4vh;
+    font-size: 2rem;
     color: rgb(0, 0, 197);
 }
 
 .cards-container p {
-    font-size: 2.5vh;
+    font-size: 1.3rem;
 }
 
 .contact-subtitle-1 {
-    margin-top: 0vh;
+    margin-top: 0;
 }
 
 .contact-subtitle-2 {
-    margin-top: 0vh;
-    margin-bottom: 7rem;
+    margin-top: 0;
+    margin-bottom: 5rem;
 }
 
 .contact-card {
     display: flex;
     flex-direction: column;
     background-color: rgba(230, 230, 230, 0.781);
-    border-radius: 3vh;
+    border-radius: 1.5rem;
     align-self: center;
     width: 40%;
     height: auto;
-    margin-bottom: 5vh;
-    padding: 10vh;
+    margin-bottom: 4rem;
+    padding: 5rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(66, 66, 66, 0.144);
     text-align: left;
@@ -48,25 +48,25 @@
 }
 
 .contact-input-items input {
-    border-radius: 4vh;
+    border-radius: 1.5rem;
     border: none;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin-bottom: 3rem;
-    font-size: 2vh;
-    padding: 2vh;
+    font-size: 1rem;
+    padding: 1rem;
 }
 
 .contact-input-items label {
-    font-size: 2.5vh;
-    margin-bottom: 2vh;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
 }
 
 .contact-input-items textarea {
-  border-radius: 2vh; /* Coincide con tus inputs */
+  border-radius: 1.5rem;
   border: none;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  font-size: 2vh;
-  padding: 2vh;
+  font-size: 1rem;
+  padding: 1rem;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   resize: vertical;
   width: 100%;
@@ -76,24 +76,22 @@
   padding-bottom: 40px; 
 }
 
-/* 2. El 'wrapper' para el contador */
 .char-counter-wrapper {
   position: relative;
   width: 100%;
-  margin-bottom: 3rem; /* Añade el margen que tenías en los inputs */
+  margin-bottom: 2rem; 
 }
 
-/* 3. El contador */
 #char-counter {
   position: absolute;
-  bottom: 15px; /* Ajusta este valor si es necesario */
-  right: 15px; /* Ajusta este valor si es necesario */
+  bottom: 15px;
+  right: 15px; 
   color: #666;
-  font-size: 1.5vh;
+  font-size: 1rem;
   transition: color 0.3s ease;
 }
 
-/* 4. El estado rojo de "límite alcanzado" */
+
 #char-counter.limit-reached {
   color: red;
   font-weight: bold;
@@ -102,11 +100,11 @@
 .contact-input-items .send-message-button {
     width: 90%;
     height: 3rem;
-    margin-top: 3vh;
+    margin-top: 1rem;
     align-self: center;
     font-size: 2rem;
     border: none;
-    border-radius: 3vh;
+    border-radius: 1.5rem;
     background-color: rgb(0, 0, 197);
     color: white;
     text-align: center;
@@ -133,34 +131,31 @@
 .contact-input-items .button-text {
     position: relative;
     bottom: 70%;
-    font-size: 3vh;
+    font-size: 1.6rem;
 }
 
-/* --- AÑADE ESTO AL FINAL DE TU 'Contact.css' --- */
 
-/* 1. Estilos para los inputs y textareas con error */
 .contact-input-items .input-error {
-  border: 2px solid #dc3545; /* Borde rojo cuando hay un error */
+  border: 2px solid #dc3545;
 }
 
-/* Para que la transición del borde sea suave, modifica tu regla existente así: */
+
 .contact-input-items input,
 .contact-input-items textarea {
-  border: 2px solid transparent; /* Añade un borde transparente por defecto */
-  transition: border-color 0.3s ease; /* Añade una transición */
+  border: 2px solid transparent; 
+  transition: border-color 0.3s ease; 
 }
 
-/* 2. Estilo para el mensaje de texto del error */
+
 .error-message {
   color: #dc3545;
-  font-size: 1.5vh;
-  margin-top: -2.5rem; /* Ajusta para que aparezca debajo del input */
+  font-size: 0.8rem;
+  margin-top: -2.5rem; 
   margin-bottom: 1.5rem;
   text-align: left;
 }
 
 
-/* 3. Estilos para la notificación personalizada (tipo "toast") */
 .form-notification {
   position: fixed;
   bottom: 30px;
@@ -177,11 +172,15 @@
 }
 
 .form-notification.success {
-  background-color: #28a745; /* Verde para éxito */
+  background-color: #28a745;
 }
 
 .form-notification.error {
-  background-color: #dc3545; /* Rojo para error */
+  background-color: #dc3545; 
+}
+
+.form-notification.fade-out {
+  animation: fadeOutDown 0.5s ease-in forwards;
 }
 
 @keyframes slideInUp {
@@ -192,6 +191,17 @@
   to {
     transform: translate(-50%, 0);
     opacity: 1;
+  }
+}
+
+@keyframes fadeOutDown {
+  from {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-50%, 150px);
+    opacity: 0;
   }
 }
 
@@ -207,21 +217,22 @@
     margin-bottom: 8rem;
 }
 
-.contact-methods .contact-method {
+.contact-method {
     display: flex;
     flex-direction: row;
     gap: 2rem;
     align-items: center;
     justify-content: left;
     background-color: rgba(230, 230, 230, 0.637);
-    border-radius: 3vh;
+    border-radius: 1.5rem;
     align-self: center;
     width: 100%;
     height: 1rem;
-    margin-bottom: 5vh;
-    padding: 5vh;
+    margin-bottom: 2.4rem;
+    padding: 2.5rem;
     text-shadow: none;
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 .contact-method:hover {
@@ -235,7 +246,7 @@
 
 .contact-info {
     position: relative;
-    bottom: 2vh;
+    bottom: 1rem;
     width: auto;
 }
 
@@ -243,12 +254,32 @@
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 0;
+    color: black;
 }
 
-.contact-info a {
-    font-size: 2rem;
-    font-weight: 400;
+.contact-method {
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+
+#contact-method-whatsapp {
+    color: #04a71f;
+    background-color: #00bd1f5d;
+    text-shadow: none;
+    font-size: 1.5rem;
+}
+
+#contact-method-email {
+    color: #cf001c;
+    text-shadow: none;
+    font-size: 1.5rem;
+}
+
+#contact-method-call {
+    color: rgb(1, 1, 161);
+    text-shadow: none;
+    font-size: 1.5rem;
+}
+
 
 /**  ICONS  **/
 
@@ -261,8 +292,12 @@
     border-radius: 50%;
 }
 
-.contact-method .phone {
+.contact-method .call {
     background-color: rgb(1, 1, 161);
+}
+
+.contact-method .call h4 {
+    color: rgb(1, 1, 161);
 }
 
 .contact-method .whatsapp {
@@ -281,7 +316,7 @@
     display: flex;
     flex-direction: row;
     justify-content: left;
-    gap: 1vh;
+    gap: 0.5rem;
     align-items: center;
     font-size: 2rem;
     margin-top: 0.2rem;
@@ -304,26 +339,11 @@
 
 /**/
 
-.contact-methods #contact-method-ws {
-    background-color: #4ffd8f60;
-}
-
 
 
 /*  CONTACT INFO DETAILS  */
 
-#contact-method-call a {
-    color: rgb(1, 1, 161);
-}
 
-#contact-method-ws a {
-    color: #00bd1f;
-    text-shadow: none;
-}
-
-#contact-method-email a {
-    color: #cf001c;
-}
 
 
 
@@ -335,6 +355,7 @@
     box-shadow: 0 0px 4px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
+    scroll-margin-top: 10rem;
 }
 .contact-methods .office-hours:hover {
     scale: none;

@@ -11,7 +11,12 @@ function Body() {
                     reparación y mantenimiento de neveras, lavadoras,
                      secadoras, calentadores y equipos de refrigeración
                       industrial y comercial. Servicio rápido, confiable y garantizado.</p>
-                <a className='whatsapp-button-main'><FaWhatsapp className="logo-main"/> <div>Contáctanos Ahora</div></a>
+                <a  className='whatsapp-button-main'
+                    href="https://wa.me/3018520511"
+                    target="_blank">
+                        <FaWhatsapp className="logo-main"/>
+                        <div>Contáctanos Ahora</div>
+                </a>
 
             </div>
         </div>

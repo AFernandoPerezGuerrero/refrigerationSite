@@ -1,0 +1,51 @@
+/* TICKER CONTAINER */
+.ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+  background-color: #145eff;
+  color: white;
+  box-sizing: border-box;
+  z-index: 9999;
+  position: absolute;
+  top: 5rem;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.3rem;
+}
+
+.ticker {
+  display: inline-flex; 
+  white-space: nowrap;
+  animation: marquee 40s linear infinite;
+}
+
+.ticker:hover {
+  animation-play-state: paused;
+  
+}
+
+.ticker-wrap a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: all 0.2s ease;}
+
+.ticker-wrap a:hover {
+    cursor: pointer;
+    color: rgb(9, 36, 59);
+}
+
+.ticker-item {
+  padding: 0 10rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

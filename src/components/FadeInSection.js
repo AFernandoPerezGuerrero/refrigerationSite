@@ -11,8 +11,8 @@ function FadeInSection(props) {
         setVisible(true);
         observer.unobserve(domRef.current);
       }
-    }, { threshold: 0.1 }); // <-- Añade este umbral
-
+    }, { threshold: 0.1 });
+    
     const { current } = domRef;
     if (current) {
       observer.observe(current);

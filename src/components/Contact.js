@@ -9,7 +9,6 @@ import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaRegClock } from "react-icons/fa";
 
-// --- La función de validación va aquí, fuera del componente ---
 const validateForm = (formData) => {
     const errors = {};
     if (!formData.name.trim()) {
@@ -26,9 +25,8 @@ const validateForm = (formData) => {
     return errors;
 };
 
-// --- Tu componente empieza aquí ---
-function Contact({ setFormStatus }) {
-    // --- ESTADO UNIFICADO ---
+function Contact({ setFormStatus, onOpenSocialsModal, contactMethods = [], onOpenContactModal }) {
+
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -37,7 +35,6 @@ function Contact({ setFormStatus }) {
     const [errors, setErrors] = useState({});
     const maxLength = 500;
 
-    // --- FUNCIÓN 'handleChange' ---
     const handleChange = (e) => {
         const { id, value } = e.target;
         setFormData(prev => ({ ...prev, [id]: value }));
@@ -74,7 +71,7 @@ function Contact({ setFormStatus }) {
     };
 
     return (
-        <div className='cards-container'>
+        <div className='cards-container' id='contact-card'>
             <h3 className='contact-title'>Contáctanos</h3>
             <p className='contact-subtitle-1'>Estamos listos para ayudarte.</p>
             <p className='contact-subtitle-2'>Contáctanos por cualquiera de estos medios:</p>
@@ -111,16 +108,16 @@ function Contact({ setFormStatus }) {
                           name="user_message" 
                           rows="6"
                           maxLength={maxLength}
-                          value={formData.message} // <-- USA formData.message
+                          value={formData.message} 
                           onChange={handleChange} 
                           placeholder="Escribe tu mensaje y nos contactaremos lo más pronto posible."
                           className={errors.message ? 'input-error' : ''}
                         />
                         <small 
                           id="char-counter" 
-                          className={formData.message.length >= maxLength ? 'limit-reached' : ''} // <-- USA formData.message
+                          className={formData.message.length >= maxLength ? 'limit-reached' : ''}
                         >
-                          {formData.message.length}/{maxLength} {/* <-- USA formData.message */}
+                          {formData.message.length}/{maxLength}
                         </small>
                     </div>
                     {errors.message && <small className="error-message">{errors.message}</small>}
@@ -133,6 +130,7 @@ function Contact({ setFormStatus }) {
             </div>
 
             <div className="contact-methods">
+                
                 <svg width="0" height="0" style={{ position: 'absolute', zIndex: -1 }}>
                     <defs>
                         <linearGradient id="instagram-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -144,37 +142,24 @@ function Contact({ setFormStatus }) {
                 </svg>
                 <h3 className="contact-methods-title">Información de Contacto</h3>
                 
-                <div className='contact-method' id="contact-method-call">
-                    <a className="phone" id="icon">
-                    <FiPhone />
-                    </a>
-                    <div className="contact-info">
-                        <h4>Llamar</h4>
-                        <a>+57 301 852 0511</a>
-                    </div>
-                
-                </div>
-                <div className='contact-method' id="contact-method-ws">
-                    <a className="whatsapp" id="icon">
-                    <FiMessageCircle />
-                    </a>
-                    <div className="contact-info">
-                        <h4>WhatsApp</h4>
-                        <a>+57 301 852 0511</a>
-                    </div>
-                </div>
-                
-                <div className='contact-method' id="contact-method-email">
-                    <a className="email" id="icon">
-                    <MdOutlineEmail />
-                    </a>
-                    <div className="contact-info">
-                        <h4>Email</h4>
-                        <a>coolfixh.i@gmail.com</a>
-                    </div>
-                
-                </div>
-                <div className='contact-method' id="contact-method-social">
+                 {contactMethods.map(method => (
+                <div 
+                    key={method.id}
+                    className='contact-method' 
+                    id={`contact-method-${method.id}`}
+                    onClick={() => onOpenContactModal(method)}
+                >
+                <div className={method.id} id="icon">{method.icon}</div>
+                <div className="contact-info">
+                <h4>{method.title}</h4>
+                <span>{method.info}</span>
+            </div>
+          </div>
+        ))}
+
+                <div className='contact-method' 
+                id="contact-method-social" 
+                onClick={onOpenSocialsModal}>
                     <a className="social" id="icon">
                     <MdShare />
                     </a>
@@ -182,7 +167,6 @@ function Contact({ setFormStatus }) {
                         <h4>Redes Sociales</h4>
                         <a className="social-icons">
                             <FaFacebook className='facebook-icon' />
-                            
                             <span className="instagram-gradient-icon">
                             <FaInstagram/>
                             </span>
@@ -191,13 +175,13 @@ function Contact({ setFormStatus }) {
                     </div>
                 </div>
                     
-                <div className="contact-method office-hours">
+                <div className="contact-method office-hours" id="office-hours">
                     <a className="office-hours-title">
-                        <FaRegClock className="office-hours-icon"/>
+                        <FaRegClock className="office-hours-icon" />
                         <h3>Horarios de Atención</h3>
                     </a>
 
-                    <div className="office-hours-container">
+                    <div className="office-hours-container" >
                         <div className="weekdays">
                             <h4>Lunes - Viernes:</h4>
                             <h4>Sábados:</h4>
