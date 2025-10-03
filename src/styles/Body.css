@@ -100,3 +100,22 @@
 }
 
 
+@media screen and (max-width: 768px) {
+  .whatsapp-button-main {
+    width: 60%;
+    font-size: 1.5rem;
+    align-content: center;
+  }
+
+  .logo-main {
+    top: 1.2rem;
+  }
+
+  .corner-whatsapp-button {
+    font-size: 2rem;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+  }
+}
+

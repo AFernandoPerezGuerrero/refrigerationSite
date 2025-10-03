@@ -13,6 +13,7 @@ import Ticker from './components/Ticker.js';
 import Menu from './components/Menu.js';
 import ContactMethodModal from './components/ContactMethodModal';
 import AboutUsModal from './components/AboutUsModal.js';
+import NewsletterModal from './components/NewsletterModal';
 import { FaWhatsapp } from "react-icons/fa";
 import { FiPhone, FiMessageCircle } from "react-icons/fi";
 import { MdOutlineEmail } from "react-icons/md";
@@ -42,6 +43,7 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedContactMethod, setSelectedContactMethod] = useState(null);
   const [selectedAboutUs, setSelectedAboutUs] = useState(null);
+  const [isNewsletterModalOpen, setIsNewsletterModalOpen] = useState(false);
   const openMenu = () => setIsMenuOpen(true);
   const closeMenu = () => setIsMenuOpen(false);
   const openServiceModal = (service) => setSelectedService(service);
@@ -52,7 +54,8 @@ function App() {
   const closeSocialsModal = () => setSocialsModalIsOpen(false);
   const openAboutUsModal = (aboutus) => setSelectedAboutUs(aboutus);
   const closeAboutUsModal = () => setSelectedAboutUs(null);
-  
+  const openNewsletterModal = () => setIsNewsletterModalOpen(true);
+  const closeNewsletterModal = () => setIsNewsletterModalOpen(false);
 
 
     useEffect(() => {
@@ -131,7 +134,7 @@ useEffect(() => {
 
       <header className={!showHeader ? 'hidden' : ''}>
         <Header onOpenMenu={openMenu}/>
-        <Ticker />
+        <Ticker onOpenNewsletterModal={openNewsletterModal} />
       </header>
         
       <a href="https://wa.me/TUNUMERO" className="corner-whatsapp-button" target="_blank" rel="noopener noreferrer">
@@ -179,10 +182,10 @@ useEffect(() => {
         {formStatus}
         </div>
       )}
-      <Notification />
+      <Notification onOpenNewsletterModal={openNewsletterModal} />
       <ContactMethodModal method={selectedContactMethod} onClose={closeContactModal} />
       <AboutUsModal aboutus={selectedAboutUs} onClose={closeAboutUsModal} />
-
+      <NewsletterModal isOpen={isNewsletterModalOpen} onClose={closeNewsletterModal} />
     </div>
   );
 }

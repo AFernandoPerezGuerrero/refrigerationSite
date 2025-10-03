@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Notification.css';
 
-function Notification() {
+function Notification({ onOpenNewsletterModal }) {
   const [status, setStatus] = useState('hidden');
 
+  
   useEffect(() => {
     const showTimer = setTimeout(() => {
       setStatus('visible');
@@ -34,6 +35,11 @@ function Notification() {
     }, 500); 
   };
 
+  const handleActionClick = () => {
+    onOpenNewsletterModal(); 
+    handleClose();         
+  };
+
   const notificationClasses = [
     'notification-popup',
     status === 'visible' ? 'slide-in' : '',
@@ -42,6 +48,8 @@ function Notification() {
   if (status === 'hidden') {
     return null;
   }
+
+  
 
 return (
     <div className={notificationClasses}>
@@ -56,7 +64,7 @@ return (
           <p>Tu texto de promoción va aquí.</p>
         </div>
         
-        <button className="action-button">Ver Más</button>
+        <button className="action-button" onClick={handleActionClick}>Ver Más</button>
       </div>
     </div>
   );

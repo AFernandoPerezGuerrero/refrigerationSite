@@ -9,7 +9,7 @@ function ServiceCatalog({ services, onOpenModal }) {
   }
 
   return (
-    <div className='catalog'>
+    <div className='catalog' id='service-catalog'>
       <div className='catalog-information'>
         <h3>Nuestros Servicios</h3>
         <p>Ofrecemos servicios especializados para equipos domésticos, industriales y comerciales.</p>

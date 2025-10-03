@@ -1,16 +1,16 @@
 .service-card {
-    display: block;
-    background-color: rgb(255, 255, 255);
-    width: 30rem;
-    height: 38rem;
-    align-items: center;
-    justify-items: center;
-    border-radius: 5%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    transition: all 0.5s ease;
-    overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  max-width: 30rem;
+  height: auto;
+  min-height: 38rem; 
+  border-radius: 5%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease;
+  overflow: hidden;
 }
-
 .service-card:hover {
     scale: 1.02;
 }

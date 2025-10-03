@@ -70,16 +70,6 @@
   margin-top: 4rem;
 }
 
-.menu-title {
-    font-size: 1.9rem;
-    left: 2rem;
-    top: 2rem;
-    margin-bottom: 7rem;
-    position: relative;
-    width: 20rem;
-    color: rgba(0, 0, 0, 0.952);
-}
-
 .menu-title .coolfix {
     color: rgba(0, 4, 238, 0.952);
 }
@@ -209,3 +199,25 @@
   from { transform: translateX(0); }
   to { transform: translateX(-100%); }
 }
+
+
+@media screen and (max-width: 768px) {
+  .menu-panel {
+    width: 55%;
+  }
+
+  .menu-item-button {
+    font-size: 1.1rem;
+  }
+
+  .submenu-item-button {
+    font-size: 1rem;
+  }
+
+  .submenu-item-link {
+    font-size: 1.2rem;
+    font-family: inherit;
+  }
+
+  
+  }

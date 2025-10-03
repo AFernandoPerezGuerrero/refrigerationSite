@@ -211,7 +211,7 @@
     display: flex;
     flex-direction: column;
     text-align: left;
-    width: 45%;
+    width: 50%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 8rem;
@@ -220,24 +220,23 @@
 .contact-method {
     display: flex;
     flex-direction: row;
-    gap: 2rem;
+    gap: 1.5rem;
+    padding: 16px;
+    justify-self: center;
     align-items: center;
-    justify-content: left;
-    background-color: rgba(230, 230, 230, 0.637);
-    border-radius: 1.5rem;
-    align-self: center;
+    background-color: #f0f2f5;
+    border-radius: 1.8rem;
     width: 100%;
-    height: 1rem;
-    margin-bottom: 2.4rem;
-    padding: 2.5rem;
+    margin-bottom: 1.5rem;
     text-shadow: none;
     transition: all 0.3s ease;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .contact-method:hover {
-    cursor: pointer;
-    scale: 1.02;
+    transform: translateY(-3px); /* Un efecto hover más sutil */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .contact-methods-title {
@@ -341,13 +340,6 @@
 
 
 
-/*  CONTACT INFO DETAILS  */
-
-
-
-
-
-
 /* OFFICE HOURS INFO */
 
 .contact-methods .office-hours {
@@ -378,13 +370,13 @@
 }
 
 .office-hours-container {
-    display: flex;
-    flex-direction: row;
-    gap: 10rem;
-    font-size: 1.6rem;
-    margin-top: -2rem;
-    margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  font-size: 1.5rem;
+  gap: 15rem;
+  margin-bottom: 5rem;
 }
+
 
 .office-hours-container h4 {
         font-weight: 400;
@@ -394,6 +386,97 @@
     justify-items: end;
 }
 
+
+@media screen and (max-width: 768px) {
+  .contact-card {
+    width: 70vw;
+    padding: 1rem;
+
+  }
+
+  .cards-container h3 {
+    font-size: 1.5rem;
+  }
+
+   .contact-input-items input {
+    font-size: 0.8rem;
+  }
+  .contact-input-items label {
+    font-size: 0.9rem;
+  }
+
+    .contact-input-items textarea {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+    #char-counter {
+    bottom: 30px;
+    right: 15px; 
+    font-size: 0.8rem;
+
+}
+
+    .contact-input-items .send-message-button {
+    font-size: 1.3rem;
+    height: 2.5rem;
+  }
+
+    .contact-input-items .icon-send {
+    position: relative;
+    top: 30%;
+    right: 45%;
+}
+    .contact-input-items .button-text {
+    position: relative;
+    bottom: 50%;
+    font-size: 1.4rem;
+}
+
+    .contact-methods {
+        display: flex;
+        flex-direction: column;
+        align-content: left;
+        width: 75%;
+        
+    }
+
+    .contact-method {
+     width: 100%;
+     padding: 1rem;
+     height: 5rem;
+    }
+
+    .contact-method h4 {
+        font-size: 1rem;
+    }
+
+    .contact-info {
+        font-size: 1.2rem;
+    }
+    
+    .office-hours {
+        width: 100%;
+    }
+
+    .office-hours h4 {
+        font-size: 1rem;
+    }
+
+    .office-hours h3 {
+        font-size: 1rem;
+    }
+
+    .office-hours-container {
+        display: flex;
+        flex-direction: row;
+        gap: 5rem;
+        margin-bottom: 2rem;
+    }
+
+  
+
+}
 
 
 

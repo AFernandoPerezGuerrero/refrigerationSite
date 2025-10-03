@@ -15,7 +15,7 @@
     top: 40%;
     margin-top: 0;
     border-bottom: solid 1px white;
-    width: 30rem;
+    width: 28rem;
 }
 
 .coolfix-footer {
@@ -31,7 +31,7 @@
     align-items: center;
     gap: 1rem;
     font-size: 0.9rem;
-    width: 50rem;
+    width: 90%;
 }
 
 
@@ -41,9 +41,34 @@
 }
 
 .footer-subtitle-2 {
-    width: 35rem;
+    width: fit-content;
     position: relative;
     top: 5%;
-    right: 16px;
+    right: 0;
 }
 
+@media screen and (max-width: 768px) {
+  .footer-styles {
+    font-size: 0.8rem;
+  }
+
+  .footer-title {
+    font-size: 1.4rem;
+  }
+
+  .coolfix-footer {
+    margin-right: -1%;
+  }
+  
+  .footer-info-container {
+    font-size: 0.8rem;
+  }
+
+  .footer-subtitle-2 {
+    width: fit-content;
+    position: relative;
+    top: 15%;
+    right: 0rem;
+}
+
+}
