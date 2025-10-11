@@ -37,10 +37,11 @@
     color: #000; 
 }
 
-.contact-modal-icon { 
-    font-size: 3rem; 
-    color: rgb(0, 0, 197); 
-    margin-bottom: 1rem; 
+.modal-content .modal-icon {
+  position: relative;
+  bottom: 0rem;
+  top: 0.2rem;
+  left: -0.5rem;
 }
 
 .modal-content h2 { 
@@ -70,3 +71,30 @@
 }
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+
+@media screen and (max-width: 767px) {
+  .modal-content {
+    width: 90vw;
+  }
+  
+  .modal-content h2 {
+    font-size: 1.2rem;
+  }
+
+  .modal-content p {
+    font-size: 0.7rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .contact-modal-icon {
+    font-size: 2rem;
+    margin-top: 1rem;
+  }
+
+  .contact-modal-button {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+}

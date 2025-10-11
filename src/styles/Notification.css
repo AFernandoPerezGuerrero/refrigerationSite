@@ -102,7 +102,7 @@
 
 @media screen and (max-width: 767px) {
   .notification-popup {
-    width: 10rem;
+    width: 12rem;
     height: 6rem;
   }
 
@@ -119,13 +119,14 @@
   }
 
   .action-button {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     margin-top: 0.3rem;
-    padding: 3px 5px;
+    padding: 2px 4px;
   }
 
   .close-button {
     top: 0.5rem;
-    right: 8.5rem;
+    right: 10.5rem;
+    color: #0056b3;
   }
 }

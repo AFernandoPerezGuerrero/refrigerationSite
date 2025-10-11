@@ -2,6 +2,7 @@
     background-color: white;
     display: flex;
     flex-direction: column;
+
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     margin-top: 1rem;
     padding-top: 3rem;
@@ -136,7 +137,7 @@
 
 
 .contact-input-items .input-error {
-  border: 2px solid #dc3545;
+  border: 1px solid #dc3545;
 }
 
 
@@ -387,39 +388,59 @@
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .contact-card {
-    width: 70vw;
+    width: 80vw;
     padding: 1rem;
+  }
+
+  .cards-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
   }
 
   .cards-container h3 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    width: 80vw;
+  }
+
+  .cards-container p {
+    font-size: 1rem;
+    width: 80vw;
+  }
+
+  .contact-subtitle-2 {
+        margin-bottom: 2rem;
   }
 
    .contact-input-items input {
     font-size: 0.8rem;
+    height: 0.1rem;
+    margin-bottom: 1rem;
   }
   .contact-input-items label {
-    font-size: 0.9rem;
+    font-size: 0.7rem;
   }
 
     .contact-input-items textarea {
-    font-size: 0.8rem;
-    margin-bottom: 1rem;
+    font-size: 0.7rem;
+    margin-bottom: -1.3rem;
   }
 
     #char-counter {
-    bottom: 30px;
-    right: 15px; 
-    font-size: 0.8rem;
+    bottom: 10px;
+    right: 10px; 
+    font-size: 0.7rem;
 
 }
 
     .contact-input-items .send-message-button {
-    font-size: 1.3rem;
-    height: 2.5rem;
+    font-size: 1rem;
+    height: 2rem;
+    margin-top: 0;
   }
 
     .contact-input-items .icon-send {
@@ -429,34 +450,52 @@
 }
     .contact-input-items .button-text {
     position: relative;
-    bottom: 50%;
-    font-size: 1.4rem;
+    bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+    .error-message {
+      font-size: 0.7rem;
+      margin-top: -1rem; 
+      margin-bottom: 1.3rem;
+      text-align: left;
 }
 
     .contact-methods {
         display: flex;
         flex-direction: column;
-        align-content: left;
-        width: 75%;
-        
+        justify-content: center;
+        align-items: center;
+        width: 80vw;
     }
 
     .contact-method {
      width: 100%;
      padding: 1rem;
-     height: 5rem;
+     height: 2.5rem;
+    }
+
+    .contact-methods-title {
+      margin-bottom: 1rem;
+    }
+
+    .contact-method #icon {
+      font-size: 1rem;
+      width: 1rem;
+      height: 1rem;
     }
 
     .contact-method h4 {
-        font-size: 1rem;
+        font-size: 0.8rem;
+        margin-top: 2rem;
     }
 
     .contact-info {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
     
     .office-hours {
-        width: 100%;
+        width: 80vw;
     }
 
     .office-hours h4 {
@@ -464,7 +503,9 @@
     }
 
     .office-hours h3 {
-        font-size: 1rem;
+        font-size: 1.2rem;
+        margin-left: 3.5rem;
+        
     }
 
     .office-hours-container {
@@ -474,7 +515,9 @@
         margin-bottom: 2rem;
     }
 
-  
+  :is(.send-message-button:hover, .contact-method):hover {
+    transform: none;
+  }
 
 }
 

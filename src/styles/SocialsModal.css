@@ -89,3 +89,33 @@
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+@media screen and (max-width: 767px) {
+  .modal-content {
+    width: 90vw;
+  }
+
+  :is(.social-icon-link.instagram-gradient-icon, .social-icon-link.facebook-icon) {
+      margin-top: 0.2rem;
+  }
+
+  :is(.social-icon-link.instagram-gradient-icon, .social-icon-link.facebook-icon):hover {
+    transform: none;
+  }
+
+  :is(.social-icon-link.instagram-gradient-icon, .social-icon-link.facebook-icon):active {
+    transform: scale(1.02);
+  }
+
+  .social-icon-link.facebook-icon {
+    margin-bottom: 0.2rem;
+  }
+
+  .modal-content h2 {
+    font-size: 1.3rem;
+  }
+
+  .social-column h3 {
+    font-size: 1.2rem;
+  }
+}

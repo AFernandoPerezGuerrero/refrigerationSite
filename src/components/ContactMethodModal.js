@@ -13,16 +13,16 @@ function ContactMethodModal({ method, onClose }) {
           &times;
         </button>
         
-        <div className="contact-modal-icon">{method.icon}</div>
         <h2>{method.title}</h2>
         <p>Puedes contactarnos directamente a través de este medio:</p>
-        
+
         <a 
           href={method.href}
           className="contact-modal-button"
           target="_blank" 
           rel="noopener noreferrer"
         >
+          <span className='modal-icon'>{method.icon}</span>
           {method.info}
         </a>
       </div>
