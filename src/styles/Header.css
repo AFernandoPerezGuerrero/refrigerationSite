@@ -97,17 +97,41 @@
   color: #333;     
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
+
+  .header {
+    width: 100vw;
+  }
+
   .header .title {
     font-size: 1rem;
+    width: 100vw;
+    justify-content: center;
   }
 
-  .header .spanish-button, .header .english-button {
-    font-size: 1rem;
+  .language-buttons {
+    flex-direction: row;
+    margin-right: 0.3rem;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .spanish-button, .english-button {
+    font-size: 0.9rem;
     padding: 0rem;
+    width: 1.8rem;
+    height: 1.8rem;
   }
 
-  .header .menu-button:hover {
+  .menu-button {
+    margin-left: 0;
+  }
+
+  .header .menu-button svg {
+    font-size: 1.5rem;
+  }
+
+  .header .menu-button svg:hover {
     background-color: none;
     }
 }

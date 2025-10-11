@@ -101,10 +101,17 @@
 
 
 @media screen and (max-width: 768px) {
+
+  .main-content {
+    margin-top: 0;
+    width: 100vw;
+  }
+
   .whatsapp-button-main {
-    width: 60%;
-    font-size: 1.5rem;
+    width: 80vw;
+    font-size: 1.3rem;
     align-content: center;
+    padding-left: 1rem;
   }
 
   .logo-main {
@@ -112,6 +119,7 @@
   }
 
   .corner-whatsapp-button {
+    position: fixed;
     font-size: 2rem;
     margin: 0;
     width: 3rem;

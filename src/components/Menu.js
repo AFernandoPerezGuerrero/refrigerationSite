@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
 import { IoIosArrowDown } from "react-icons/io";
 import '../styles/Menu.css';
+import DynamicIcon from './DynamicIcon';
 
 function Menu({ isOpen, onClose, services, onOpenServiceModal, contactMethods, onOpenContactModal, onOpenSocialsModal, aboutUs, onOpenAboutUsModal }) {
   const [isClosing, setIsClosing] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
 
+  const { 
+    name, 
+    description, 
+    image_url, 
+    icon_library, 
+    icon_name, 
+    icon_color 
+  } = services;
 
   if (!isOpen && !isClosing) return null;
   const handleClose = () => {
@@ -64,6 +73,13 @@ function Menu({ isOpen, onClose, services, onOpenServiceModal, contactMethods, o
                  
                     <button className="submenu-item-button" onClick={() => handleServiceClick(service)}>
                       {service.name}
+                    <DynamicIcon 
+                      library={icon_library} 
+                      name={icon_name} 
+                      color={icon_color}
+                      size={30}
+                      className="service-icon" 
+                    />
                     </button>
                   </li>
                 ))}
