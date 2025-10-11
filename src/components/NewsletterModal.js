@@ -3,6 +3,9 @@ import '../styles/NewsletterModal.css';
 import { FaArrowRight } from "react-icons/fa"; 
 
 function NewsletterModal({ isOpen, onClose }) {
+
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
   const [email, setEmail] = useState('');
   const [feedback, setFeedback] = useState('');
 
@@ -11,7 +14,7 @@ function NewsletterModal({ isOpen, onClose }) {
     setFeedback("Enviando...");
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/api/newsletter/subscribe`, {
+      const response = await fetch(`${API_BASE_URL}/api/newsletter/subscribe`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -27,6 +27,7 @@ const validateForm = (formData) => {
 
 function Contact({ setFormStatus, onOpenSocialsModal, contactMethods = [], onOpenContactModal }) {
 
+    const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -52,7 +53,7 @@ function Contact({ setFormStatus, onOpenSocialsModal, contactMethods = [], onOpe
 
         setFormStatus("Enviando...");
         try {
-            const response = await fetch('http://localhost:5000/api/messages', {
+            const response = await fetch(`${API_BASE_URL}/api/messages`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
