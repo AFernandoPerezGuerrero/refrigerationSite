@@ -126,7 +126,8 @@
     }
 
     .service-card .solicitar-servicio-button {
-        width: 90%;
+        width: 95%;
+        padding: 1rem;
         height: 3rem;
         font-size: 1rem;
         margin-bottom: 2rem;

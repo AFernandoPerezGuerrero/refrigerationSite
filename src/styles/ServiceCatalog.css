@@ -49,6 +49,11 @@
     margin-top: 3rem;
     width: 100%;
   }  
+
+  .catalog-information {
+    width: 90%;
+  }
+
   .catalog-information h3 {
     font-size: 1.5rem;
     width: 50%;
