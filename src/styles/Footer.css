@@ -90,10 +90,11 @@
   }
 
   .footer-subtitle-2 {
-    width: 90%;
+    width: 80%;
     position: relative;
     top: 2rem;
-    right: 2rem;
+    right: 0rem;
+    left: 0;
     margin-top: 0;
     margin-bottom: 0;
     background-color: rgb(1, 1, 161);
