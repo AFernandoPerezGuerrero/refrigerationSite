@@ -359,15 +359,16 @@
     font-size: 2rem;
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
-    position: relative;
-    right: 15%;
-    gap: 1rem;
+    gap: 2rem;
     margin-bottom: 0;
 }
 
 .contact-methods .office-hours-icon {
     color: rgb(1, 1, 161);
+    position: relative;
+    left: 0;
 }
 
 .office-hours-container {
@@ -390,7 +391,7 @@
 
 @media screen and (max-width: 767px) {
   .contact-card {
-    width: 80vw;
+    width: 80%;
     padding: 1rem;
   }
 
@@ -404,12 +405,13 @@
 
   .cards-container h3 {
     font-size: 1.2rem;
-    width: 80vw;
+    width: 100%;
   }
 
   .cards-container p {
     font-size: 1rem;
-    width: 80vw;
+    width: 80%;
+
   }
 
   .contact-subtitle-2 {
@@ -466,7 +468,8 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 80vw;
+        width: 80%;
+
     }
 
     .contact-method {
@@ -495,25 +498,37 @@
     }
     
     .office-hours {
-        width: 80vw;
+            width: 100%;
+
     }
 
     .office-hours h4 {
         font-size: 1rem;
+        width: 100%;
     }
 
     .office-hours h3 {
         font-size: 1.2rem;
-        margin-left: 3.5rem;
+        margin-left: 0;
         
     }
 
     .office-hours-container {
         display: flex;
         flex-direction: row;
-        gap: 5rem;
+        gap: 1rem;
         margin-bottom: 2rem;
+    
     }
+
+    .office-hours-title {
+      gap: 0;
+      position: relative;
+      padding-right: 0;
+      margin-right: 0;
+    }
+
+  
 
   :is(.send-message-button:hover, .contact-method):hover {
     transform: none;

@@ -47,14 +47,15 @@
 @media screen and (max-width: 767px) {
   .catalog {
     margin-top: 3rem;
+    width: 100%;
   }  
   .catalog-information h3 {
     font-size: 1.5rem;
-    width: 50vw;
+    width: 50%;
   }
   .catalog-information p {
     font-size: 1rem;
-    width: 50vw;
+    width: 50%;
   }
 
   .catalog-container {

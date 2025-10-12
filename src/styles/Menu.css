@@ -203,7 +203,7 @@
 
 @media screen and (max-width: 767px) {
   .menu-panel {
-    width: 60vw;
+    width: 80%;
   }
 
   .menu-item-button {

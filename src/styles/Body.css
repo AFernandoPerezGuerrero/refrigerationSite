@@ -28,16 +28,17 @@
 .main-content h1, .main-content p {
     margin-top: 0;
     color: white;
-    width: clamp(20rem, 35vw, 40rem);
+    width: 90%;
+    max-width: 600px
 }
 
 .main-content h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: clamp(1rem, 2rem, 3.5rem);
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);;
 }
 
 .main-content p {
-    font-size: clamp(1rem, 2vw, 2rem);
+    font-size: clamp(0.3rem, 1rem, 2rem);
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);;
 }
 
@@ -104,11 +105,11 @@
 
   .main-content {
     margin-top: 0;
-    width: 100vw;
+    width: 100%;
   }
 
   .whatsapp-button-main {
-    width: 80vw;
+    width: 80%;
     font-size: 1.3rem;
     align-content: center;
     padding-left: 1rem;

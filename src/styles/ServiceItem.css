@@ -1,16 +1,20 @@
 .service-card {
-  display: flex;
-  flex-direction: column;
-  background-color: rgb(255, 255, 255);
-  width: 100%;
-  max-width: 30rem;
-  height: auto;
-  height: 36rem; 
-  border-radius: 5%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  transition: all 0.5s ease;
-  overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    
+    /* --- CORRECTION --- */
+    width: 100%;      /* Ocupa el 100% de la columna del grid */
+    max-width: 30rem; /* Mantiene tu tamaño máximo para PC */
+    height: 38rem;    /* Tu altura original */
+    
+    align-items: center;
+    border-radius: 5%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s ease;
+    overflow: hidden;
 }
+
 .service-card:hover {
     scale: 1.02;
 }
@@ -99,8 +103,8 @@
 
 @media screen and (max-width: 767px) {
     .service-card {
-        width: 90vw;
-        height: 54vh;
+        min-width: 21rem;
+        min-height: 27rem;
     }
 
     .service-card .service-icon {
@@ -115,15 +119,17 @@
     }
 
     .service-card p {
+        width: 90%;
         font-size: 1rem;
         margin-top: 0;
         margin-bottom: 0;
     }
 
     .service-card .solicitar-servicio-button {
-        width: 80vw;
+        width: 90%;
         height: 3rem;
         font-size: 1rem;
+        margin-bottom: 2rem;
     }
 
 }
