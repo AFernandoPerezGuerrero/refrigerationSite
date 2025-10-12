@@ -35,7 +35,7 @@ header.hidden {
 footer {
   height: 7rem;
   margin-top: -1.12rem;
-  background-color: rgb(0, 0, 197);
+  background-color:rgb(1, 1, 161);
   color: white;
 }
 
@@ -48,7 +48,6 @@ footer {
     min-height: 2rem;
     max-height: 4rem;
     font-size: clamp(0.5rem, 2rem, 3rem); 
-    
   }
 }
 

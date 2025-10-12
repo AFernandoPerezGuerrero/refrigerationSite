@@ -5,7 +5,7 @@
     
     /* --- CORRECTION --- */
     width: 100%;      /* Ocupa el 100% de la columna del grid */
-    max-width: 30rem; /* Mantiene tu tamaño máximo para PC */
+    max-width: 40rem; /* Mantiene tu tamaño máximo para PC */
     height: 38rem;    /* Tu altura original */
     
     align-items: center;
@@ -104,7 +104,7 @@
 @media screen and (max-width: 767px) {
     .service-card {
         min-width: 21rem;
-        min-height: 27rem;
+        height: 27rem;
     }
 
     .service-card .service-icon {

@@ -49,15 +49,21 @@
 
 @media screen and (max-width: 768px) {
   .footer-styles {
+    position: relative;
     font-size: 0.6rem;
-    padding-bottom: 0rem;
+    height: 3rem;
+    bottom: 0px;
+    padding-bottom: 2rem;
+    justify-content: center;
   }
 
   .footer-title {
     font-size: 1rem;
     text-align: left;
     width: 90%;
+    margin-top: 1rem;
     margin-bottom: 0;
+    padding-bottom: 0;
   }
 
   .coolfix-footer {
@@ -72,23 +78,25 @@
     align-items: start;
     width: 99%;
     display: flex;
+    margin-bottom: 0;
   }
 
   .footer-subtitle {
     position: relative;
     margin-bottom: 0;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
     align-items: left;
     width: 90%;
   }
 
   .footer-subtitle-2 {
-    width: 90;
+    width: 80%;
     position: relative;
-    top: 3rem;
-    right: 0rem;
+    top: 2rem;
+    right: 0.8rem;
     margin-top: 0;
     margin-bottom: 0;
+    background-color: rgb(1, 1, 161);
 }
 
 }

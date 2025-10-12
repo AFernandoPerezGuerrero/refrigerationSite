@@ -76,7 +76,7 @@
     justify-content: center;
     align-content: center;
     text-align: center;
-    height: 1.2rem;
+    height: 1.5rem;
     top: 4rem;
   }
 
@@ -99,13 +99,13 @@
   }
   
   .ticker-item {
-    font-size: 0.5rem;
+    font-size: 0.8rem;
     padding: 0 5rem;
     
   }
   
   .ticker-item-button {
-    font-size: 0.5rem;
+    font-size: 0.8rem;
     padding: 0 5rem;
     
   }
