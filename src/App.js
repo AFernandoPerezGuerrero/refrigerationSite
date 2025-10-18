@@ -30,7 +30,8 @@ const contactMethodsData = [
 const aboutUsData = { 
   title: 'CoolFix', 
   icon: <FcAbout />, 
-  info: 'Contamos con más de X años de experiencia dedicada a brindar soluciones para...'}
+  info: 'Somos especialistas en reparación, mantenimiento e instalación de equipos de refrigeración, lavandería y calefacción, con más de 15 años de experiencia. Atendemos línea doméstica, comercial e industrial, ofreciendo soluciones rápidas, confiables y garantizadas.'
+}
 
 function App() {
   const [selectedService, setSelectedService] = useState(null);
