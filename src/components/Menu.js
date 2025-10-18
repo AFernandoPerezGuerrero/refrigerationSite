@@ -9,6 +9,10 @@ function Menu({ isOpen, onClose, services, onOpenServiceModal, contactMethods, o
   const [isClosing, setIsClosing] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
+  // ⬇️ NEW STATES: For Domestic and Industrial Category Toggles ⬇️
+  const [isDomesticOpen, setIsDomesticOpen] = useState(false);
+  const [isIndustrialOpen, setIsIndustrialOpen] = useState(false);
+
   const { t } = useTranslation();
 
   /*
@@ -21,6 +25,14 @@ function Menu({ isOpen, onClose, services, onOpenServiceModal, contactMethods, o
     icon_color 
   } = services;
 */
+
+const toggleDomestic = () => {
+    setIsDomesticOpen(!isDomesticOpen);
+  };
+
+  const toggleIndustrial = () => {
+    setIsIndustrialOpen(!isIndustrialOpen);
+  };
 
   if (!isOpen && !isClosing) return null;
   const handleClose = () => {
@@ -86,33 +98,41 @@ function Menu({ isOpen, onClose, services, onOpenServiceModal, contactMethods, o
                 
                 {/* 1. DOMESTIC SERVICES */}
                 <li className="category-header">
-                  <button className="menu-item-button category-button" onClick={null}>
-                    {t('menu.services_domestic')}
-                  </button>
-                  <ul className="sub-submenu">
-                    {renderSubmenuItems(categorizedServices.home)}
-                  </ul>
-                </li>
+                  <button className="menu-item-button category-button" onClick={toggleDomestic}>
+                  {t('menu.services_domestic')}
+                  <span className={`arrow ${isDomesticOpen ? 'open' : ''}`}>
+                      <IoIosArrowDown /> {/* Add arrow indicator */}
+                  </span>
+                </button>
+                {/* ⬇️ Use conditional class to control visibility ⬇️ */}
+                <ul className={`sub-submenu ${isDomesticOpen ? 'open' : ''}`}> 
+                  {renderSubmenuItems(categorizedServices.home)}
+                </ul>
+              </li>
 
-                {/* 2. INDUSTRIAL SERVICES */}
-                <li className="category-header">
-                  <button className="menu-item-button category-button" onClick={null}>
-                    {t('menu.services_industrial')}
+              {/* 2. INDUSTRIAL SERVICES */}
+              <li className="category-header">
+                <button className="menu-item-button category-button" onClick={toggleIndustrial}>
+                  {t('menu.services_industrial')}
+                  <span className={`arrow ${isIndustrialOpen ? 'open' : ''}`}>
+                      <IoIosArrowDown /> {/* Add arrow indicator */}
+                  </span>
+                </button>
+                {/* ⬇️ Use conditional class to control visibility ⬇️ */}
+                <ul className={`sub-submenu ${isIndustrialOpen ? 'open' : ''}`}>
+                  {renderSubmenuItems(categorizedServices.industrial)}
+                </ul>
+              </li>
+              
+              {/* 3. COMMERCIAL LINE (Remains the same, but must still be inside the main submenu) */}
+              {categorizedServices.commercial && (
+                <li>
+                  {/* Keep styling consistent with main menu buttons as requested */}
+                  <button 
+                    className="menu-item-button" 
+                    onClick={() => handleServiceClick(categorizedServices.commercial)}>
+                    {categorizedServices.commercial.name} 
                   </button>
-                  <ul className="sub-submenu">
-                    {renderSubmenuItems(categorizedServices.industrial)}
-                  </ul>
-                </li>
-                
-                {/* 3. COMMERCIAL LINE (Standalone Item) */}
-                {categorizedServices.commercial && (
-                  <li>
-                    {/* Styling should match main menu buttons (menu-item-button) */}
-                    <button 
-                      className="menu-item-button" 
-                      onClick={() => handleServiceClick(categorizedServices.commercial)}>
-                      {categorizedServices.commercial.name} 
-                    </button>
                   </li>
                 )}
               </ul>

@@ -167,6 +167,24 @@
   color: rgb(0, 0, 197);
 }
 
+.sub-submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+/* Show the sub-menus when the open class is present */
+.sub-submenu.open {
+    max-height: 500px; /* Needs to be larger than content height */
+    transition: max-height 0.5s ease-in;
+}
+
+/* Ensure the category buttons themselves look right */
+.category-header .category-button {
+    /* Style to differentiate it slightly from service items if needed */
+    padding-left: 20px;
+}
+
 
 @keyframes menuFadeIn {
   from { 
