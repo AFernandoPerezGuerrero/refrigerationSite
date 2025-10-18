@@ -100,26 +100,26 @@
   background-color: #0056b3;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 300px) and (max-width: 767px) {
   .notification-popup {
-    width: 12rem;
-    height: 6rem;
+    width: 10rem;
+    height: 7rem;
   }
 
   .notification-content {
-    padding-top: 0.7rem;
+    padding-top: 0.6rem;
   }
   
   .notification-text strong {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
   }
 
   .notification-text p {
-    font-size: 0.6rem;
+    font-size: 0.5rem;
   }
 
   .action-button {
-    font-size: 0.6rem;
+    font-size: 0.5rem;
     margin-top: 0.3rem;
     padding: 2px 4px;
   }
