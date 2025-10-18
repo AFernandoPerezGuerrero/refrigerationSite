@@ -198,6 +198,7 @@
       display: grid;
       grid-template: 1fr;
       gap: 0.3rem;
+      width: 50%;
   }
 
     .catalog-category-buttons {
