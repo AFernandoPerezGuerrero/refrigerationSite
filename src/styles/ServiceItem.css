@@ -112,8 +112,8 @@
     .service-card .service-icon {
         width: 1.2rem;
         height: 1.8rem;
-        top: 0rem;
-        left: -1.5rem;
+        top: -1rem;
+        left: -1rem;
     }
 
     .item-title h3 {

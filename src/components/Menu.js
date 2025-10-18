@@ -78,13 +78,7 @@ function Menu({ isOpen, onClose, services, onOpenServiceModal, contactMethods, o
                  
                     <button className="submenu-item-button" onClick={() => handleServiceClick(service)}>
                       {service.name}
-                    <DynamicIcon 
-                      library={service.icon_library} 
-                      name={service.icon_name} 
-                      color={service.icon_color}
-                      size={30}
-                      className="service-icon" 
-                    />
+                    
                     </button>
                   </li>
                 ))}
