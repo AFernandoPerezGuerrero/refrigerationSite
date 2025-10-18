@@ -132,6 +132,9 @@
 .contact-input-items .button-text {
     font-size: 1.6rem;
 }
+.contact-input-items .button-right-spacing {
+  width: 1rem;
+}
 
 
 .contact-input-items .input-error {
