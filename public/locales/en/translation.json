@@ -14,6 +14,7 @@
     "services": "Services",
     "services_domestic": "Domestic Services",
     "services_industrial": "Industrial Services",
+    "linea_comercial": "Commercial Line",
     "contact_hours": "Contact & Hours",
     "send_message": "Send us a Message",
     "social_networks": "Social Media",
@@ -29,7 +30,8 @@
     "loading": "Loading services...",
     "header": "Our Services",
     "description": "We offer specialized services for domestic, industrial, and commercial equipment.",
-    "image_alt": "Equipment image for the {{serviceName}} service"
+    "image_alt": "Equipment image for the {{serviceName}} service",
+    "no_services_found": "No services found in this category."
   },
   "item": {
     "button": "Request Service"

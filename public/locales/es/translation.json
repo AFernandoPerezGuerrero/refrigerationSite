@@ -14,6 +14,7 @@
     "services": "Servicios",
     "services_domestic": "Servicios Domésticos",
     "services_industrial": "Servicios Industriales",
+    "linea_comercial": "Línea Comercial",
     "contact_hours": "Contacto y Horarios",
     "send_message": "Envíanos un mensaje",
     "social_networks": "Redes Sociales",
@@ -29,7 +30,8 @@
     "loading": "Cargando servicios...",
     "header": "Nuestros Servicios",
     "description": "Ofrecemos servicios especializados para equipos domésticos, industriales y comerciales.",
-    "image_alt": "Imagen de equipo para el servicio de {{serviceName}}"
+    "image_alt": "Imagen de equipo para el servicio de {{serviceName}}",
+    "no_services_found": "No se encontraron servicios en esta categoría." 
   },
   "item": {
     "button": "Solicitar Servicio"
