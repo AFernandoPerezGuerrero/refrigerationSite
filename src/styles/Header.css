@@ -97,14 +97,14 @@
   color: #333;     
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 300px) and (max-width: 767px) {
 
   .header {
     width: 100%;
   }
 
   .header .title {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     gap: 0;
     width: 100%;
     justify-content: center;
