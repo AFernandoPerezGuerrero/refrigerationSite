@@ -28,6 +28,7 @@
   },
   "catalog": {
     "loading": "Cargando servicios...",
+    "prompt_filter": "Selecciona una categoría para ver los servicios disponibles.",
     "header": "Nuestros Servicios",
     "description": "Ofrecemos servicios especializados para equipos domésticos, industriales y comerciales.",
     "image_alt": "Imagen de equipo para el servicio de {{serviceName}}",

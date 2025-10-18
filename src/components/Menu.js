@@ -129,7 +129,7 @@ const toggleDomestic = () => {
                 <li>
                   {/* Keep styling consistent with main menu buttons as requested */}
                   <button 
-                    className="menu-item-button" 
+                    className="menu-item-button commercial" 
                     onClick={() => handleServiceClick(categorizedServices.commercial)}>
                     {categorizedServices.commercial.name} 
                   </button>

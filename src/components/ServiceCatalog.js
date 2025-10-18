@@ -1,84 +1,154 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ServiceItem from '../components/ServiceItem';
 import "../styles/ServiceCatalog.css"; 
 import { useTranslation } from 'react-i18next'; // ⬅️ NEW IMPORT
 
 function ServiceCatalog({ services, onOpenModal }) {
-  const { t } = useTranslation(); // ⬅️ Initialize hook
+const { t, i18n } = useTranslation(); // ⬅️ Defines both 't' AND 'i18n'
+
+const [activeCategory, setActiveCategory] = useState(null); 
+  // ⬇️ NEW STATE: Stores the translated title for display ⬇️
+  const [displayedTitle, setDisplayedTitle] = useState(null); 
+  // ⬇️ NEW STATE: Unique key to force re-render and animation ⬇️
+  const [animationKey, setAnimationKey] = useState(0);
   
-  const [activeCategory, setActiveCategory] = useState(null); // 'home', 'industrial', 'commercial'
 
-  if (!services || services.length === 0) {
-    return <h3>{t("catalog.loading")}</h3>;
-  }
+  const getCategoryTitle = (categoryKey) => {
+    if (categoryKey === 'home') return t('menu.services_domestic');
+    if (categoryKey === 'industrial') return t('menu.services_industrial');
+    if (categoryKey === 'commercial') return t('menu.linea_comercial');
+    return null;
+  };
 
-  const getFilteredServices = () => {
+  useEffect(() => {
+      // If a category is active, re-translate its title whenever i18n.language changes
+      if (activeCategory) {
+          setDisplayedTitle(getCategoryTitle(activeCategory));
+      }
+      // The effect is triggered whenever i18n.language changes globally
+  }, [i18n.language, activeCategory]);
+
+  const handleCategoryClick = (categoryKey) => {
+      // 1. Update the filter
+      setActiveCategory(categoryKey); 
+      // 2. Set the displayed title using the helper function
+      setDisplayedTitle(getCategoryTitle(categoryKey)); 
+      // 3. Trigger animation
+      setAnimationKey(prev => prev + 1); 
+  };
+
+  
+
+  // src/components/ServiceCatalog.js
+
+// ... (rest of imports and hooks) ...
+
+const getFilteredServices = () => {
     if (!activeCategory) {
-      // If no category is selected, return an empty array (or all services, but client asked to show only when clicked)
       return []; 
     }
 
     return services.filter(service => {
-        const originalName = service.name_es || service.name; // Use Spanish name for filtering logic
+        // ⬇️ FIX: Use the 'name' property directly, as this holds the correct language content ⬇️
+        const displayedName = service.name; 
         
+        if (!displayedName) return false;
+
+        // Convert to lowercase to ensure matching works regardless of case
+        const lowerCaseName = displayedName.toLowerCase(); 
+
+        // Check for keywords in the currently displayed language (ES or EN)
+        // We must include both English and Spanish keywords now, as the name changes language.
+        
+        // 1. HOME SERVICES Check
         if (activeCategory === 'home') {
-            return originalName && (originalName.includes('Doméstica') || originalName.includes('Calefacción') || originalName.includes('Cocina'));
+            return lowerCaseName.includes('doméstica') || 
+                   lowerCaseName.includes('domestic') || 
+                   lowerCaseName.includes('calefacción') || 
+                   lowerCaseName.includes('heating') ||
+                   lowerCaseName.includes('cocina') ||
+                   lowerCaseName.includes('kitchen');
         }
+
+        // 2. INDUSTRIAL SERVICES Check
         if (activeCategory === 'industrial') {
-            return originalName && originalName.includes('Industrial');
+            return lowerCaseName.includes('industrial'); // Works for both languages
         }
+
+        // 3. COMMERCIAL SERVICES Check
         if (activeCategory === 'commercial') {
-            return originalName && originalName.includes('Comercial');
+            return lowerCaseName.includes('comercial') || 
+                   lowerCaseName.includes('commercial'); 
         }
         return false;
     });
-  };
+};
+// ... (rest of component logic) ...
 
   const filteredServices = getFilteredServices();
 
+    if (!services || services.length === 0) {
+    return <h3>{t("catalog.loading")}</h3>;
+  }
+
+
   const renderCategoryButtons = () => (
+    <div className='catalog-buttons-container'>
     <div className="catalog-category-buttons">
       <button 
         className={`category-button ${activeCategory === 'home' ? 'active' : ''}`}
-        onClick={() => setActiveCategory('home')}
+        onClick={() => handleCategoryClick('home')}
       >
         {t('menu.services_domestic')}
       </button>
       <button 
         className={`category-button ${activeCategory === 'industrial' ? 'active' : ''}`}
-        onClick={() => setActiveCategory('industrial')}
+        onClick={() => handleCategoryClick('industrial')}
       >
         {t('menu.services_industrial')}
       </button>
-      <button 
-        className={`category-button ${activeCategory === 'commercial' ? 'active' : ''}`}
-        onClick={() => setActiveCategory('commercial')}
-      >
-        {t('menu.linea_comercial')} {/* Assuming a new translation key for "Línea Comercial" */}
-      </button>
+
     </div>
+
+    <button 
+        className={`category-button ${activeCategory === 'commercial' ? 'active' : ''}`}
+        onClick={() => handleCategoryClick('commercial')}
+      >
+        {t('menu.linea_comercial')} 
+      </button>
+</div>
   );
 
     const renderServiceItems = () => {
-      if (filteredServices.length === 0) {
-          if (activeCategory) {
-              return <p className="no-services">{t('catalog.no_services_found')}</p>;
-          }
-          return null; // Don't show anything until a button is clicked
-      }
+        
+        // Scenario A: Data is loading (show initial loading state from App.js)
+        if (!services || services.length === 0) {
+            return <h3>{t("catalog.loading")}</h3>; 
+        }
 
-  return (
-          <div className="catalog-container">
-              {filteredServices.map(service => (
-                  <ServiceItem 
-                      key={service.id} 
-                      service={service}
-                      onOpenModal={onOpenModal}
-                  />
-              ))}
-          </div>
-      );
-  };
+        // Scenario B: No category is active (prompt user to click a button)
+        if (!activeCategory) {
+            return <p className="initial-prompt">{t('catalog.prompt_filter')}</p>; // Need to add this key
+        }
+        
+        // Scenario C: Filter is active but found nothing
+        if (filteredServices.length === 0) {
+             return <p className="no-services">{t('catalog.no_services_found')}</p>;
+        }
+
+        // Scenario D: Display filtered services (The list fade-in logic)
+        return (
+            <div className="catalog-container animated-content">
+                {filteredServices.map(service => (
+                    <ServiceItem 
+                        key={service.id} 
+                        service={service}
+                        onOpenModal={onOpenModal}
+                    />
+                ))}
+            </div>
+        );
+    };
 
 
   return (
@@ -91,9 +161,13 @@ function ServiceCatalog({ services, onOpenModal }) {
       {/* Step 2: Render the buttons */}
       {renderCategoryButtons()}
       
-      {/* Step 3: Render the services only if a category is active */}
-      {renderServiceItems()}
+      {displayedTitle && (
+          <h2 className="active-category-title">{displayedTitle}</h2>
+      )}
 
+      <div className="service-animation-wrapper">
+                {renderServiceItems()}
+            </div>
     </div>
   );
 }

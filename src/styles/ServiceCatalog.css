@@ -6,6 +6,7 @@
     margin-top: 5rem;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     scroll-margin-top: 10rem;
+    margin-bottom: 2rem;
 }
 
 .catalog-information {
@@ -44,9 +45,73 @@
     padding: 2rem;
 }
 
-.cathegory-button {
-  
+.catalog-buttons-container {
+  margin-top: 2rem;
+  display: grid;
+  grid-template: 1fr / 1fr;
+  gap: 0.3rem;
 }
+
+.catalog-category-buttons {
+  display: grid;
+  grid-template: 1fr / 1fr 1fr;
+  gap: 0.3rem;
+}
+
+.category-button {
+  all: unset;
+}
+
+.category-button {
+    font: inherit;
+    border-radius: 0.3rem;
+    color: white;
+    background-color: rgb(3, 3, 214);
+    font-size: 1rem;
+    font-weight: 600;
+    height: 4rem;
+    padding: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.329);
+    transition: all 0.3s ease;
+}
+
+.category-button:focus {
+      outline: black;
+}
+
+.category-button:active {
+  background-color: rgb(19, 19, 143);;
+}
+
+.initial-prompt {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.158);
+  border-top: 1px solid rgba(0, 0, 0, 0.158);
+  width: 80%;
+  justify-self: center;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+@keyframes listFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Apply animation to the list container */
+.catalog-container.animated-content {
+    animation: listFadeIn 0.5s ease-out 1; /* Apply animation on render */
+}
+
+/* Style for the displayed title */
+.active-category-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #004c99; /* Example color */
+    
+}
+
 
 @media screen and (max-width: 767px) {
   .catalog {
@@ -82,6 +147,8 @@
       grid-template-columns: 1fr;
       gap: 3rem;
     }
+
+    
 }
 
 @media (min-width: 1024px) and (max-width: 1280px){
@@ -105,10 +172,42 @@
       grid-template-columns: 1fr 1fr 1fr;
       gap: 1rem;
     }
+
+    .category-button {
+      font-size: 1.5rem;
+    }
+
+    .category-button:hover {
+      cursor: pointer;
+      background-color: rgb(19, 19, 143);
+    }
+
+    .catalog-buttons-container {
+      margin-top: 4rem;
+      display: grid;
+      grid-template: 1fr;
+      gap: 0.3rem;
+  }
+
+    .catalog-category-buttons {
+      display: grid;
+      grid-template-rows: 1fr;
+      gap: 0.3rem;
+  }
+
+    .initial-prompt {
+      font-size: 1.5rem;
+      width: 80%;
+      justify-self: center;
+      padding-bottom: 1rem;
+      padding-top: 1rem;
+    }
 }
 
 @media screen and (min-width: 1920px) and (max-width: 2900px) {
     .catalog-container {
       grid-template-columns: 1fr 1fr 1fr;
     }
+
+    
 }

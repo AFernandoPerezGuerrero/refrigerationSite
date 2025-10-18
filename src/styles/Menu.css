@@ -91,11 +91,12 @@
   padding: 15px 30px;
   color: rgb(0, 0, 197);
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 500;
   text-align: left;
   cursor: pointer;
   transition: all 0.2s ease;
+  border-bottom: solid rgba(0, 0, 0, 0.103) 1px;
 }
 .menu-item-button:hover {
   background-color: #f0f0f0;
@@ -112,6 +113,12 @@
   transform: rotate(180deg);
 }
 
+.menu-item-button.commercial {
+      border-bottom: solid rgba(0, 0, 0, 0.103) 1px;
+      padding: 1.3rem;
+      color: inherit;
+}
+
 /* SUBMENU CONTAINER */
 .submenu {
   list-style: none;
@@ -121,10 +128,12 @@
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease-in-out;
+  
 }
 
 .submenu.open {
   max-height: 500px;
+  
 }
 
 .submenu-item-button {
@@ -133,14 +142,16 @@
   border: none;
   display: block;
   padding: 12px 45px; 
-  color: #333;
+  color: rgb(30, 0, 201);
   text-decoration: none;
   font-size: 1.2rem;
   font-weight: 400;
   text-align: left;
   cursor: pointer;
   transition: all 0.2s ease;
+  border-bottom: solid rgba(0, 0, 0, 0.103) 1px;
 }
+
 .submenu-item-button:hover {
   background-color: #e9e9e9;
   color: rgb(0, 0, 197);
@@ -161,6 +172,7 @@
   font-size: 1.4rem;
   font-weight: 500;
   text-align: left;
+  border-bottom: solid rgba(0, 0, 0, 0.103) 1px;
 }
 .submenu-item-link:hover {
   background-color: #e9e9e9;
@@ -171,6 +183,7 @@
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
+    
 }
 
 /* Show the sub-menus when the open class is present */
@@ -183,6 +196,11 @@
 .category-header .category-button {
     /* Style to differentiate it slightly from service items if needed */
     padding-left: 20px;
+    box-shadow: none;
+    height: 2rem;
+    color: inherit;
+    border-bottom: solid rgba(0, 0, 0, 0.103) 1px;
+    font-size: 1.5rem;
 }
 
 
@@ -279,5 +297,9 @@
 
   :is(.submenu-item-button, .submenu-item-link, .menu-item-button):active {
     background-color: rgba(0, 0, 255, 0.212);
+  }
+
+  .category-header .category-button {
+    font-size: 0.8rem;
   }
 }

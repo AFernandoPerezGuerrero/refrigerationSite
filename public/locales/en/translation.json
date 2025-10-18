@@ -28,6 +28,7 @@
   },
   "catalog": {
     "loading": "Loading services...",
+    "prompt_filter": "Select a category to view available services.",
     "header": "Our Services",
     "description": "We offer specialized services for domestic, industrial, and commercial equipment.",
     "image_alt": "Equipment image for the {{serviceName}} service",
