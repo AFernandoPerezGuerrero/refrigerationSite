@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import ServiceItem from '../components/ServiceItem';
 import "../styles/ServiceCatalog.css"; 
 import { useTranslation } from 'react-i18next'; // ⬅️ NEW IMPORT
