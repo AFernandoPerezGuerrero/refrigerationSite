@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { IoIosArrowDown } from "react-icons/io";
 import '../styles/Menu.css';
-import DynamicIcon from './DynamicIcon';
 import { useTranslation } from 'react-i18next';
 
 
