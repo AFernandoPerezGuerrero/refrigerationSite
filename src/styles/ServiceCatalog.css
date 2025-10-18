@@ -113,7 +113,7 @@
 }
 
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 336px) {
   .catalog {
     margin-top: 3rem;
     width: 100%;
@@ -138,6 +138,11 @@
     gap: 3rem;
     margin-top: 0.3rem;
     justify-content: center;
+    align-items: center;
+  }
+
+  .service-animation-wrapper {
+    width: 100%;
   }
 }
 
