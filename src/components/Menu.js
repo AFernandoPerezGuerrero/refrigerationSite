@@ -5,7 +5,7 @@ import DynamicIcon from './DynamicIcon';
 import { useTranslation } from 'react-i18next';
 
 
-function Menu({ isOpen, onClose, services, onOpenServiceModal, contactMethods, onOpenContactModal, onOpenSocialsModal, aboutUs, onOpenAboutUsModal }) {
+function Menu({ isOpen, onClose, services, onOpenServiceModal, contactMethods, onOpenContactModal, onOpenSocialsModal, aboutUs, onOpenAboutUsModal, categorizedServices }) {
   const [isClosing, setIsClosing] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -58,6 +58,16 @@ function Menu({ isOpen, onClose, services, onOpenServiceModal, contactMethods, o
     handleClose();
   };
 
+  const renderSubmenuItems = (list) => (
+    list.map(service => (
+      <li key={service.id}>
+        <button className="submenu-item-button" onClick={() => handleServiceClick(service)}>
+          {service.name}
+        </button>
+      </li>
+    ))
+  );
+
   return (
     <div className={`menu-overlay ${isClosing ? 'closing' : ''}`} onClick={handleClose}>
       <div className={`menu-panel ${isClosing ? 'closing' : ''}`} onClick={(e) => e.stopPropagation()}>
@@ -72,16 +82,39 @@ function Menu({ isOpen, onClose, services, onOpenServiceModal, contactMethods, o
                 </span>
               </button>
    
-              <ul className={`submenu ${isServicesOpen ? 'open' : ''}`}>
-                {services.map(service => (
-                  <li key={service.id}>
-                 
-                    <button className="submenu-item-button" onClick={() => handleServiceClick(service)}>
-                      {service.name}
-                    
+             <ul className={`submenu ${isServicesOpen ? 'open' : ''}`}>
+                
+                {/* 1. DOMESTIC SERVICES */}
+                <li className="category-header">
+                  <button className="menu-item-button category-button" onClick={null}>
+                    {t('menu.services_domestic')}
+                  </button>
+                  <ul className="sub-submenu">
+                    {renderSubmenuItems(categorizedServices.home)}
+                  </ul>
+                </li>
+
+                {/* 2. INDUSTRIAL SERVICES */}
+                <li className="category-header">
+                  <button className="menu-item-button category-button" onClick={null}>
+                    {t('menu.services_industrial')}
+                  </button>
+                  <ul className="sub-submenu">
+                    {renderSubmenuItems(categorizedServices.industrial)}
+                  </ul>
+                </li>
+                
+                {/* 3. COMMERCIAL LINE (Standalone Item) */}
+                {categorizedServices.commercial && (
+                  <li>
+                    {/* Styling should match main menu buttons (menu-item-button) */}
+                    <button 
+                      className="menu-item-button" 
+                      onClick={() => handleServiceClick(categorizedServices.commercial)}>
+                      {categorizedServices.commercial.name} 
                     </button>
                   </li>
-                ))}
+                )}
               </ul>
             </li>
 

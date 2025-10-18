@@ -12,6 +12,8 @@
   },
   "menu": {
     "services": "Servicios",
+    "services_domestic": "Servicios Domésticos",
+    "services_industrial": "Servicios Industriales",
     "contact_hours": "Contacto y Horarios",
     "send_message": "Envíanos un mensaje",
     "social_networks": "Redes Sociales",

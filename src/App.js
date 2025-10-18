@@ -21,7 +21,28 @@ import { FcAbout } from "react-icons/fc";
 import './i18n'; // ⬅️ NEW: Import the i18n configuration
 import { useTranslation } from 'react-i18next'; // ⬅️ NEW: Import the hook
 
+const categorizeServices = (serviceList) => {
+    const categories = {
+        home: [],
+        industrial: [],
+        commercial: null // 'Línea Comercial' will be stored as a single object
+    };
 
+    serviceList.forEach(service => {
+        // Use the untranslated (original Spanish) name for reliable filtering
+        const originalName = service.name_es || service.name; 
+        
+        if (originalName && originalName.includes('Industrial')) {
+            categories.industrial.push(service);
+        } else if (originalName && (originalName.includes('Doméstica') || originalName.includes('Calefacción') || originalName.includes('Cocina'))) {
+            categories.home.push(service);
+        } else if (originalName && originalName.includes('Comercial')) {
+            // Special handling for Línea Comercial
+            categories.commercial = service; 
+        }
+    });
+    return categories;
+};
 
 
 function App() {
@@ -38,6 +59,7 @@ function App() {
   const [selectedAboutUs, setSelectedAboutUs] = useState(null);
   const [isNewsletterModalOpen, setIsNewsletterModalOpen] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language); // ⬅️ NEW: Track active language
+  const [categorizedServices, setCategorizedServices] = useState({ home: [], industrial: [], commercial: null });
   const openMenu = () => setIsMenuOpen(true);
   const closeMenu = () => setIsMenuOpen(false);
   const openServiceModal = (service) => setSelectedService(service);
@@ -82,6 +104,7 @@ const aboutUsData = {
         const response = await fetch(`${API_BASE_URL}/api/services?lang=${currentLanguage}`); 
         const data = await response.json();
         setServices(data);
+        setCategorizedServices(categorizeServices(data));
       } catch (error) {
         console.error("Error al obtener los servicios:", error);
       }
@@ -139,7 +162,28 @@ useEffect(() => {
     return () => clearTimeout(timer);
   }, [formStatus]);
 
-  
+  const categorizeServices = (serviceList) => {
+    const categories = {
+        home: [],
+        industrial: [],
+        commercial: null // 'Línea Comercial' will be stored as a single object
+    };
+
+    serviceList.forEach(service => {
+        // Use the untranslated (original Spanish) name for reliable filtering
+        const originalName = service.name_es || service.name; 
+        
+        if (originalName && originalName.includes('Industrial')) {
+            categories.industrial.push(service);
+        } else if (originalName && (originalName.includes('Doméstica') || originalName.includes('Calefacción') || originalName.includes('Cocina'))) {
+            categories.home.push(service);
+        } else if (originalName && originalName.includes('Comercial')) {
+            // Special handling for Línea Comercial
+            categories.commercial = service; 
+        }
+    });
+    return categories;
+};
 
   return (
     <div className="App">
@@ -147,6 +191,7 @@ useEffect(() => {
       isOpen={isMenuOpen} 
       onClose={closeMenu} 
       services={services}
+      categorizedServices={categorizedServices}
       onOpenServiceModal={openServiceModal}
       contactMethods={contactMethodsData}
       onOpenContactModal={openContactModal}
