@@ -128,6 +128,7 @@ function Contact({ setFormStatus, onOpenSocialsModal, contactMethods = [], onOpe
                     <button className='send-message-button' type="submit">
                         <BsSend className='icon-send'/>
                         <div className="button-text">{t('contact.send_button')}</div>
+                        <div></div>
                     </button>
                 </form>
             </div>
