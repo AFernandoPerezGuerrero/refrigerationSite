@@ -48,6 +48,8 @@
 .catalog-buttons-container {
   margin-top: 2rem;
   display: grid;
+  align-items: center;
+  width: 100%;
   grid-template: 1fr / 1fr;
   gap: 0.3rem;
 }
@@ -55,6 +57,7 @@
 .catalog-category-buttons {
   display: grid;
   grid-template: 1fr / 1fr 1fr;
+  width: 100%;
   gap: 0.3rem;
 }
 
@@ -142,7 +145,8 @@
   }
 
   .service-animation-wrapper {
-    width: 100%;
+    align-items: center; /* ⬅️ CRUCIAL FIX: Centers content horizontally */
+    width: 100%; /* Must be 100% in mobile/desktop context */
     justify-items: center;
     align-items: center;
   }
@@ -205,9 +209,10 @@
     .initial-prompt {
       font-size: 1.5rem;
       width: 80%;
-      justify-self: center;
       padding-bottom: 1rem;
       padding-top: 1rem;
+      text-align: center; /* ⬅️ CRUCIAL FIX: Centers the text inside the prompt div */
+      margin: 1rem auto;
     }
 }
 
