@@ -5,10 +5,10 @@
     
     /* --- CORRECTION --- */
     width: 100%;  
-    min-width: 35rem;    /* Ocupa el 100% de la columna del grid */
+    min-width: 100%;    /* Ocupa el 100% de la columna del grid */
     max-width: 40rem; /* Mantiene tu tamaño máximo para PC */
     height: 38rem;    /* Tu altura original */
-    
+    min-height: 50rem;
     align-items: center;
     border-radius: 5%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
