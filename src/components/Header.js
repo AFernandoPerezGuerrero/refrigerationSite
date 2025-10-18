@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 
 
-function Header({ onOpenMenu }) {
+function Header({ onOpenMenu, onLanguageChange }) {
     const { t, i18n } = useTranslation(); // ⬅️ Get i18n instance
 
     
@@ -25,11 +25,11 @@ function Header({ onOpenMenu }) {
             <div className='language-buttons'>
 
                 <a className={`spanish-button ${i18n.language === 'es' ? 'active' : ''}`} 
-                   onClick={() => changeLanguage('es')}>
+                   onClick={() => onLanguageChange('es')}>
                         ES
                         </a>
                 <a className={`english-button ${i18n.language === 'en' ? 'active' : ''}`} 
-                   onClick={() => changeLanguage('en')}>
+                   onClick={() => onLanguageChange('en')}>
                         EN
                         </a>
             </div>
