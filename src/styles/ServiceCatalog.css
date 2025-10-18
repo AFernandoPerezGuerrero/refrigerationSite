@@ -44,6 +44,10 @@
     padding: 2rem;
 }
 
+.cathegory-button {
+  
+}
+
 @media screen and (max-width: 767px) {
   .catalog {
     margin-top: 3rem;
