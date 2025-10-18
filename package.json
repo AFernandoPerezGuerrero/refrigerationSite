@@ -23,7 +23,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "extract": "lingui extract",
-    "compile": "lingui compile"
+    "compile": "lingui compile",
+    "install": "npm install --legacy-peer-deps"
   },
   "eslintConfig": {
     "extends": [
