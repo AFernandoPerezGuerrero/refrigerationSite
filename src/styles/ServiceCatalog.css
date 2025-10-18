@@ -71,3 +71,20 @@
   }
 }
 
+@media screen and (min-width: 768px) {
+    .catalog-container {
+      grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .catalog-container {
+      grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .catalog-container {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+}

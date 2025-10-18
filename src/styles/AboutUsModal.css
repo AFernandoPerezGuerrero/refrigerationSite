@@ -24,4 +24,9 @@
     padding: 1rem;
     width: 85%;
   }
+
+  .modal-content h3 {
+    font-size: 1rem;
+    font-weight: 400;
+  }
 }

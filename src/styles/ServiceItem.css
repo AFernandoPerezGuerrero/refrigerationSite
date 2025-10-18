@@ -4,7 +4,8 @@
     background-color: rgb(255, 255, 255);
     
     /* --- CORRECTION --- */
-    width: 100%;      /* Ocupa el 100% de la columna del grid */
+    width: 100%;  
+    min-width: 100%;    /* Ocupa el 100% de la columna del grid */
     max-width: 40rem; /* Mantiene tu tamaño máximo para PC */
     height: 38rem;    /* Tu altura original */
     
