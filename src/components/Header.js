@@ -8,12 +8,7 @@ import { useTranslation } from 'react-i18next';
 function Header({ onOpenMenu }) {
     const { t, i18n } = useTranslation(); // ⬅️ Get i18n instance
 
-    // Function to handle the click and change the language
-    const changeLanguage = (lng) => {
-        i18n.changeLanguage(lng);
-        // Optionally, if App.js needs to know the language changed for the database fetch,
-        // it must also receive a prop like onLanguageChange(lng) from App.js.
-    };
+    
 
     return (
     

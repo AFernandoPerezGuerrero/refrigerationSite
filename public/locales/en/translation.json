@@ -14,7 +14,7 @@
     "services": "Services",
     "contact_hours": "Contact & Hours",
     "send_message": "Send us a Message",
-    "social_networks": "Social Networks",
+    "social_networks": "Social Media",
     "office_hours": "Hours",
     "about_us": "About Us"
   },
@@ -44,7 +44,7 @@
     "message_placeholder": "Write your message and we will contact you as soon as possible.",
     "send_button": "Send Message",
     "info_title": "Contact Information",
-    "our_socials": "Our Social Networks",
+    "our_socials": "Our Social Media",
     "facebook": "Facebook",
     "instagram": "Instagram",
     "call_modal_button": "+57 301 852 0511",
