@@ -444,13 +444,9 @@
   }
 
     .contact-input-items .icon-send {
-    position: relative;
-    top: 30%;
-    right: 45%;
+    flex-shrink: 0;
 }
     .contact-input-items .button-text {
-    position: relative;
-    bottom: 1rem;
     font-size: 1.2rem;
 }
 
