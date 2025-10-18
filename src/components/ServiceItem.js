@@ -21,7 +21,7 @@ function ServiceItem({ service, onOpenModal }) {
       
       <img 
         src={image_url} 
-        alt={name} 
+        alt={`Imagen de servicio de ${name}`} 
         className='service-card-image'
         onClick={() => onOpenModal(service)}
       />
