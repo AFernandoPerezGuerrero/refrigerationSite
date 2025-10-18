@@ -26,7 +26,8 @@
   "catalog": {
     "loading": "Cargando servicios...",
     "header": "Nuestros Servicios",
-    "description": "Ofrecemos servicios especializados para equipos domésticos, industriales y comerciales."
+    "description": "Ofrecemos servicios especializados para equipos domésticos, industriales y comerciales.",
+    "image_alt": "Imagen de equipo para el servicio de {{serviceName}}"
   },
   "item": {
     "button": "Solicitar Servicio"
@@ -81,7 +82,9 @@
   "newsletter": {
     "title": "Suscríbete a Nuestro Newsletter",
     "description": "Recibe notificaciones sobre el estado de tus equipos y nuestras últimas ofertas.",
-    "input_label": "Tu correo electrónico"
+    "input_label": "Tu correo electrónico",
+    "modal_title": "Suscríbete a Nuestro Newsletter",
+    "modal_info": "Recibe notificaciones sobre el estado de tus equipos y nuestras últimas ofertas."
   },
   "about": {
     "info_text": "Somos especialistas en reparación, mantenimiento e instalación de equipos de refrigeración, lavandería y calefacción, con más de 15 años de experiencia. Atendemos línea doméstica, comercial e industrial, ofreciendo soluciones rápidas, confiables y garantizadas."

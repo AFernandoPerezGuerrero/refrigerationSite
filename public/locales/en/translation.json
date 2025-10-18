@@ -26,7 +26,8 @@
   "catalog": {
     "loading": "Loading services...",
     "header": "Our Services",
-    "description": "We offer specialized services for domestic, industrial, and commercial equipment."
+    "description": "We offer specialized services for domestic, industrial, and commercial equipment.",
+    "image_alt": "Equipment image for the {{serviceName}} service"
   },
   "item": {
     "button": "Request Service"
@@ -81,7 +82,9 @@
   "newsletter": {
     "title": "Subscribe to Our Newsletter",
     "description": "Receive notifications about your equipment status and our latest offers.",
-    "input_label": "Your email address"
+    "input_label": "Your email address",
+    "modal_title": "Subscribe to Our Newsletter",
+    "modal_info": "Receive notifications about your equipment status and our latest offers."
   },
   "about": {
     "info_text": "We are specialists in the repair, maintenance, and installation of refrigeration, laundry, and heating equipment, with over 15 years of experience. We serve domestic, commercial, and industrial lines, offering fast, reliable, and guaranteed solutions."

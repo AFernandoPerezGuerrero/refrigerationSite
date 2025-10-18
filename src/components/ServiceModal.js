@@ -36,7 +36,7 @@ function ServiceModal({ service, onClose }) {
           rel="noopener noreferrer"
         >
           <FaWhatsapp />
-          {t("contact.title")}
+          {t("body.contact_button")}
         </a>
 
       </div>

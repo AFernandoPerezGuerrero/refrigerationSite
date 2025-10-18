@@ -77,6 +77,12 @@
     }
 }
 
+@media screen and (max-width: 992px) {
+    .catalog-container {
+      grid-template-columns: 1fr;
+    }
+}
+
 @media screen and (min-width: 992px) {
     .catalog-container {
       grid-template-columns: 1fr 1fr;
@@ -86,5 +92,11 @@
 @media screen and (max-width: 1200px) {
     .catalog-container {
       grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 1201px) {
+    .catalog-container {
+      grid-template-columns: 1fr 1fr 1fr;
     }
 }

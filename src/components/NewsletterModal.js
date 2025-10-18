@@ -55,8 +55,8 @@ function NewsletterModal({ isOpen, onClose }) {
         <button className="modal-close-button" onClick={handleClose}>
           &times;
         </button>
-        <h2>Suscríbete a Nuestro Newsletter</h2>
-        <p>Recibe notificaciones sobre el estado de tus equipos y nuestras últimas ofertas.</p>
+        <h2>{t("newsletter.modal_title")}</h2>
+        <p>{t("newsletter.modal_info")}</p>
 
         <form className="newsletter-form" onSubmit={handleSubmit}>
           <input

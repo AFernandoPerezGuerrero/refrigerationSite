@@ -11,6 +11,7 @@ function Menu({ isOpen, onClose, services, onOpenServiceModal, contactMethods, o
   const [isContactOpen, setIsContactOpen] = useState(false);
   const { t } = useTranslation();
 
+  /*
   const { 
     name, 
     description, 
@@ -19,6 +20,7 @@ function Menu({ isOpen, onClose, services, onOpenServiceModal, contactMethods, o
     icon_name, 
     icon_color 
   } = services;
+*/
 
   if (!isOpen && !isClosing) return null;
   const handleClose = () => {
@@ -77,9 +79,9 @@ function Menu({ isOpen, onClose, services, onOpenServiceModal, contactMethods, o
                     <button className="submenu-item-button" onClick={() => handleServiceClick(service)}>
                       {service.name}
                     <DynamicIcon 
-                      library={icon_library} 
-                      name={icon_name} 
-                      color={icon_color}
+                      library={service.icon_library} 
+                      name={service.icon_name} 
+                      color={service.icon_color}
                       size={30}
                       className="service-icon" 
                     />
