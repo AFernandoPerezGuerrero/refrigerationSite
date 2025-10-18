@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import '../styles/NewsletterModal.css';
 import { FaArrowRight } from "react-icons/fa"; 
+import { useTranslation } from 'react-i18next';
 
 function NewsletterModal({ isOpen, onClose }) {
+      const { t } = useTranslation(); // ⬅️ Initialize hook
+
 
   const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
@@ -59,7 +62,7 @@ function NewsletterModal({ isOpen, onClose }) {
           <input
             type="email"
             className="newsletter-input"
-            placeholder="Tu correo electrónico"
+            placeholder={t("newsletter.input_label")}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required

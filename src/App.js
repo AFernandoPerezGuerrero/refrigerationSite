@@ -18,22 +18,14 @@ import { FaWhatsapp } from "react-icons/fa";
 import { FiPhone, FiMessageCircle } from "react-icons/fi";
 import { MdOutlineEmail } from "react-icons/md";
 import { FcAbout } from "react-icons/fc";
+import './i18n'; // ⬅️ NEW: Import the i18n configuration
+import { useTranslation } from 'react-i18next'; // ⬅️ NEW: Import the hook
 
 
 
-const contactMethodsData = [
-  { id: 'call', title: 'Llamar', icon: <FiPhone />, info: '+57 301 852 0511', href: 'tel:+573018520511' },
-  { id: 'whatsapp', title: 'WhatsApp', icon: <FiMessageCircle />, info: '+57 301 852 0511', href: 'https://wa.me/573018520511' },
-  { id: 'email', title: 'Email', icon: <MdOutlineEmail />, info: 'coolfixh.i@gmail.com', href: 'mailto:coolfixh.i@gmail.com' }
-];
-
-const aboutUsData = { 
-  title: 'CoolFix', 
-  icon: <FcAbout />, 
-  info: 'Somos especialistas en reparación, mantenimiento e instalación de equipos de refrigeración, lavandería y calefacción, con más de 15 años de experiencia. Atendemos línea doméstica, comercial e industrial, ofreciendo soluciones rápidas, confiables y garantizadas.'
-}
 
 function App() {
+  const { i18n, t } = useTranslation(); // ⬅️ NEW: Initialize i18n hook
   const [selectedService, setSelectedService] = useState(null);
   const [socialsModalIsOpen, setSocialsModalIsOpen] = useState(false);
   const [formStatus, setFormStatus] = useState("");
@@ -45,6 +37,7 @@ function App() {
   const [selectedContactMethod, setSelectedContactMethod] = useState(null);
   const [selectedAboutUs, setSelectedAboutUs] = useState(null);
   const [isNewsletterModalOpen, setIsNewsletterModalOpen] = useState(false);
+  const [currentLanguage, setCurrentLanguage] = useState(i18n.language); // ⬅️ NEW: Track active language
   const openMenu = () => setIsMenuOpen(true);
   const closeMenu = () => setIsMenuOpen(false);
   const openServiceModal = (service) => setSelectedService(service);
@@ -58,21 +51,47 @@ function App() {
   const openNewsletterModal = () => setIsNewsletterModalOpen(true);
   const closeNewsletterModal = () => setIsNewsletterModalOpen(false);
 
+  const handleLanguageChange = (lng) => {
+      i18n.changeLanguage(lng);
+      setCurrentLanguage(lng); // Triggers the useEffect below
+  };
+
   const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
+  
+
+  const contactMethodsData = [
+  { id: 'call', title: t('method.call'), icon: <FiPhone />, info: t("contact.call_modal_button"), href: 'tel:+573018520511' },
+    { id: 'whatsapp', title: t('method.whatsapp'), icon: <FiMessageCircle />, info: t("contact.whatsapp_modal_button"), href: 'https://wa.me/573018520511' },
+    { id: 'email', title: t('method.email'), icon: <MdOutlineEmail />, info: t("contact.email_modal_button"), href: 'mailto:coolfixh.i@gmail.com' }
+];
+
+const aboutUsData = { 
+  title: 'CoolFix', 
+  icon: <FcAbout />, 
+  info: t('about.info_text')
+}
+
+
+    
 
     useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await fetch(`${API_BASE_URL}/api/services`);
+        // Send language code as a query parameter
+        const response = await fetch(`${API_BASE_URL}/api/services?lang=${currentLanguage}`); 
         const data = await response.json();
         setServices(data);
       } catch (error) {
         console.error("Error al obtener los servicios:", error);
       }
     };
+    // Fetch runs on mount and whenever currentLanguage changes
     fetchServices();
-  }, []);
+    
+    // NOTE: We do NOT use setInterval here, as the change is user-initiated.
+    
+  }, [API_BASE_URL, currentLanguage]);
 
     useEffect(() => {
     const handleScroll = () => {
@@ -136,7 +155,7 @@ useEffect(() => {
       onOpenAboutUsModal={openAboutUsModal}/>
 
       <header className={!showHeader ? 'hidden' : ''}>
-        <Header onOpenMenu={openMenu}/>
+        <Header onOpenMenu={openMenu} onLanguageChange={handleLanguageChange}/>
         <Ticker onOpenNewsletterModal={openNewsletterModal} />
       </header>
         

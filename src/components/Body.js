@@ -1,21 +1,21 @@
 import React from "react";
 import '../styles/Body.css'
 import { FaWhatsapp } from "react-icons/fa";
+import { useTranslation } from 'react-i18next'; // ⬅️ NEW IMPORT
+
 
 function Body() {
+    const { t } = useTranslation(); // ⬅️ Initialize hook
     return (
         <div className='main'>
             <div className='main-content'>
-                <h1>Expertos en Reparación y Mantenimiento</h1>
-                <p>En CoolFix Hogar e Industria somos expertos en 
-                    reparación y mantenimiento de neveras, lavadoras,
-                     secadoras, calentadores y equipos de refrigeración
-                      industrial y comercial. Servicio rápido, confiable y garantizado.</p>
+                <h1>{t("body.heading")}</h1>
+                <p>{t("body.paragraph")}</p>
                 <a  className='whatsapp-button-main'
                     href="https://wa.me/3018520511"
                     target="_blank">
                         <FaWhatsapp className="logo-main"/>
-                        <div>Contáctanos Ahora</div>
+                        <div>{t('body.contact_button')}</div>
                 </a>
 
             </div>

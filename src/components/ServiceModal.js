@@ -1,8 +1,12 @@
 import React from 'react';
 import '../styles/ServiceModal.css'; 
 import { FaWhatsapp } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next'; // ⬅️ NEW IMPORT
+
 
 function ServiceModal({ service, onClose }) {
+
+  const { t } = useTranslation(); // ⬅️ Initialize hook
 
   if (!service) {
     return null;
@@ -32,7 +36,7 @@ function ServiceModal({ service, onClose }) {
           rel="noopener noreferrer"
         >
           <FaWhatsapp />
-          Contáctanos
+          {t("contact.title")}
         </a>
 
       </div>

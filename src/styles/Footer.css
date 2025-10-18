@@ -20,7 +20,7 @@
 
 .coolfix-footer {
     color: rgba(250, 235, 215, 0.76);
-    margin-right: -0.5rem;
+    margin-right: 0rem;
 }
 
 .footer-info-container {
@@ -67,7 +67,7 @@
   }
 
   .coolfix-footer {
-    margin-right: -1%;
+    margin-right: 0;
   }
   
   .footer-info-container {
@@ -90,7 +90,7 @@
   }
 
   .footer-subtitle-2 {
-    width: 90%;
+    width: 80%;
     position: relative;
     top: 2rem;
     right: 0rem;

@@ -1,21 +1,25 @@
 import React from 'react';
 import '../styles/Ticker.css';
+import { useTranslation } from 'react-i18next';
 
 function Ticker({ onOpenNewsletterModal }) {
+      const { t } = useTranslation(); // ⬅️ Initialize hook
+
   return (
     <div className="ticker-wrap">
       <div className="ticker">
         <button className="ticker-item-button" onClick={onOpenNewsletterModal}>
-          Únete a nuestro newsletter para hacer seguimiento a tus equipos.
+          {t("ticker.item_button")}
         </button>
-        <a href='#office-hours'><div className="ticker-item">DISPONIBLES EN TODO MEDELLIN</div></a>
-        <a href='#service-catalog'><div className="ticker-item">Servicios, mantenimiento y calidad 100% garantizada</div></a>
+        <a href='#office-hours'><div className="ticker-item">{t("ticker.item_hours")}</div></a>
+        <a href='#service-catalog'><div className="ticker-item">{t("ticker.item_services")}</div></a>
         
         <button className="ticker-item-button" onClick={onOpenNewsletterModal}>
-          Únete a nuestro newsletter para hacer seguimiento a tus equipos.
+          {t("ticker.item_button")}
         </button>
-        <a href='#office-hours'><div className="ticker-item">Disponibles en todo MEDELLIN</div></a>
-        <a href='#service-catalog'><div className="ticker-item">Servicios, mantenimiento y calidad 100% garantizada</div></a>
+        <a href='#office-hours'><div className="ticker-item">{t("ticker.item_hours")}</div></a>
+        <a href='#service-catalog'><div className="ticker-item">{t("ticker.item_services")}</div></a>
+        
       </div>
     </div>
   );

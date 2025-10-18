@@ -1,7 +1,11 @@
 import React from 'react';
 import '../styles/ContactMethodModal.css';
+import { useTranslation } from 'react-i18next'; // ⬅️ NEW IMPORT
+
 
 function ContactMethodModal({ method, onClose }) {
+  const { t } = useTranslation(); // ⬅️ Initialize hook
+
   if (!method) {
     return null;
   }
@@ -14,7 +18,7 @@ function ContactMethodModal({ method, onClose }) {
         </button>
         
         <h2>{method.title}</h2>
-        <p>Puedes contactarnos directamente a través de este medio:</p>
+        <p>{t("contact.modal_text")}</p>
 
         <a 
           href={method.href}

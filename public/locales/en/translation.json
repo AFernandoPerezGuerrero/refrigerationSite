@@ -1,0 +1,101 @@
+{
+  "header": {
+    "open_menu_label": "Open menu",
+    "nav_link_services": "Services",
+    "title_1": "COOLFIX",
+    "title_2": "Home and Industry" 
+  },
+  "ticker": {
+    "item_button": "Join our newsletter to track your equipment status.",
+    "item_hours": "AVAILABLE ACROSS ALL OF MEDELLIN",
+    "item_services": "Service, maintenance, and 100% guaranteed quality"
+  },
+  "menu": {
+    "services": "Services",
+    "contact_hours": "Contact & Hours",
+    "send_message": "Send us a Message",
+    "social_networks": "Social Networks",
+    "office_hours": "Hours",
+    "about_us": "About Us"
+  },
+  "body": {
+    "heading": "Experts in Repair and Maintenance",
+    "paragraph": "At CoolFix Home and Industry, we are experts in the repair and maintenance of refrigerators, washing machines, dryers, heaters, and industrial and commercial refrigeration equipment. Fast, reliable, and guaranteed service.",
+    "contact_button": "Contact Us Now"
+  },
+  "catalog": {
+    "loading": "Loading services...",
+    "header": "Our Services",
+    "description": "We offer specialized services for domestic, industrial, and commercial equipment."
+  },
+  "item": {
+    "button": "Request Service"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle_1": "We are ready to help you.",
+    "subtitle_2": "Contact us through any of these means:",
+    "send_message_title": "Send us a message",
+    "name_label": "Name *",
+    "email_label": "Email Address *",
+    "message_label": "Message *",
+    "name_placeholder": "Name...",
+    "email_placeholder": "email@example.com",
+    "message_placeholder": "Write your message and we will contact you as soon as possible.",
+    "send_button": "Send Message",
+    "info_title": "Contact Information",
+    "our_socials": "Our Social Networks",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "call_modal_button": "+57 301 852 0511",
+    "whatsapp_modal_button": "+57 301 852 0511",
+    "email_modal_button": "coolfixh.i@gmail.com",
+    "modal_text": "You can contact us directly through this channel:",
+    "office_title": "Office Hours",
+    "weekdays_label": "Monday - Friday:",
+    "saturdays_label": "Saturdays:",
+    "sundays_label": "Sundays:",
+    "time_weekdays": "8:00 AM - 6:00 PM",
+    "time_saturdays": "8:00 AM - 6:00 PM",
+    "time_sundays": "Emergencies"
+  },
+  "validation": {
+    "name_required": "The name is mandatory.",
+    "email_required": "The email is mandatory.",
+    "email_invalid": "The email format is invalid.",
+    "message_min_length": "The message must be at least 10 characters."
+  },
+  "notifications": {
+    "success": "Message sent successfully!",
+    "error_send_fail": "Error: Could not send the message.",
+    "error_network": "Network error. Try again.",
+    "special_offer_title": "Special Offer!",
+    "special_offer_text": "Your promotion text goes here.",
+    "action_button": "View More"
+  },
+  "notification": {
+    "title": "Subscribe to Newsletter",
+    "description": "Share your email to receive offers and track your equipment status.",
+    "button": "See More"
+  },
+  "newsletter": {
+    "title": "Subscribe to Our Newsletter",
+    "description": "Receive notifications about your equipment status and our latest offers.",
+    "input_label": "Your email address"
+  },
+  "about": {
+    "info_text": "We are specialists in the repair, maintenance, and installation of refrigeration, laundry, and heating equipment, with over 15 years of experience. We serve domestic, commercial, and industrial lines, offering fast, reliable, and guaranteed solutions."
+  },
+  "footer": {
+    "coolfix": "CoolFix",
+    "hogar_industria": "Home and Industry",
+    "subtitle": "Experts in appliance repair and maintenance",
+    "copyright": "© 2025 CoolFix Home and Industry. All rights reserved."
+  },
+  "method": {
+    "call": "Call",
+    "whatsapp": "WhatsApp",
+    "email": "Email",
+    "social": "Social Networks"
+  }
+}

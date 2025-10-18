@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import { IoIosArrowDown } from "react-icons/io";
 import '../styles/Menu.css';
 import DynamicIcon from './DynamicIcon';
+import { useTranslation } from 'react-i18next';
+
 
 function Menu({ isOpen, onClose, services, onOpenServiceModal, contactMethods, onOpenContactModal, onOpenSocialsModal, aboutUs, onOpenAboutUsModal }) {
   const [isClosing, setIsClosing] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const { t } = useTranslation();
 
   const { 
     name, 
@@ -61,7 +64,7 @@ function Menu({ isOpen, onClose, services, onOpenServiceModal, contactMethods, o
           <ul>
             <li>
               <button className="menu-item-button" onClick={toggleServices}>
-                Servicios
+                {t('menu.services')}
                 <span className={`arrow ${isServicesOpen ? 'open' : ''}`}>
                     <IoIosArrowDown />
                 </span>
@@ -88,13 +91,13 @@ function Menu({ isOpen, onClose, services, onOpenServiceModal, contactMethods, o
 
             <li>
               <button className="menu-item-button" onClick={toggleContact}>
-                Contacto y Horarios <span className={`arrow ${isContactOpen ? 'open' : ''}`}>
+                {t('menu.contact_hours')} <span className={`arrow ${isContactOpen ? 'open' : ''}`}>
                     <IoIosArrowDown />
                 </span>
               </button>
 
               <ul className={`submenu ${isContactOpen ? 'open' : ''}`}>
-              <li><a href="#contact-card" className="submenu-item-link" onClick={handleClose}>Envíanos un mensaje</a></li>
+              <li><a href="#contact-card" className="submenu-item-link" onClick={handleClose}>{t('menu.send_message')}</a></li>
 
             {contactMethods.map(method => (
               <li key={method.id}>
@@ -103,14 +106,14 @@ function Menu({ isOpen, onClose, services, onOpenServiceModal, contactMethods, o
                   </button>
               </li>
             ))}
-              <li><button className="submenu-item-button" onClick={handleSocialsClick}>Redes Sociales</button></li>
-              <li><a href="#office-hours" className="submenu-item-link" onClick={handleClose}>Horarios</a></li>
+              <li><button className="submenu-item-button" onClick={handleSocialsClick}>{t('menu.social_networks')}</button></li>
+              <li><a href="#office-hours" className="submenu-item-link" onClick={handleClose}>{t('menu.office_hours')}</a></li>
               </ul>
             </li>
 
             <li>
               <button className="menu-item-button" onClick={handleAboutUsClick}>
-                Sobre nosotros
+                {t("menu.about_us")}
               </button>
             </li>
           </ul>

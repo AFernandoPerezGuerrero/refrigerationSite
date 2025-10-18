@@ -1,8 +1,13 @@
 import React from 'react';
 import '../styles/SocialsModal.css';
 import { FaFacebook, FaInstagram } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next'; // ⬅️ NEW IMPORT
+
 
 function SocialsModal({ isOpen, onClose }) {
+
+  const { t } = useTranslation(); // ⬅️ Initialize hook
+
   if (!isOpen) {
     return null;
   }
@@ -24,12 +29,12 @@ function SocialsModal({ isOpen, onClose }) {
           &times;
         </button>
         
-        <h2>Nuestras Redes Sociales</h2>
+        <h2>{t("contact.our_socials")}</h2>
         
         <div className="social-columns-container">
 
           <div className="social-column">
-            <h3>Facebook</h3>
+            <h3>{t("contact.facebook")}</h3>
             <a 
               href="https://facebook.com/61581477775409"
               target="_blank" 
@@ -41,7 +46,7 @@ function SocialsModal({ isOpen, onClose }) {
           </div>
           
           <div className="social-column">
-            <h3>Instagram</h3>
+            <h3>{t("contact.instagram")}</h3>
             <a 
               href="https://instagram.com/coolfix_h.i" 
               target="_blank" 

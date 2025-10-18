@@ -8,25 +8,27 @@ import { MdOutlineEmail } from "react-icons/md";
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaRegClock } from "react-icons/fa";
+import { useTranslation } from 'react-i18next'; // ⬅️ NEW IMPORT
 
-const validateForm = (formData) => {
+
+const validateForm = (formData, t) => {
     const errors = {};
     if (!formData.name.trim()) {
-        errors.name = "El nombre es obligatorio.";
+        errors.name = t("validation.name_required"); // Use translated key
     }
     if (!formData.email.trim()) {
-        errors.email = "El correo es obligatorio.";
+        errors.email = t("validation.email_required"); // Use translated key
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-        errors.email = "El formato del correo no es válido.";
+        errors.email = t("validation.email_invalid"); // Use translated key
     }
     if (formData.message.length < 10) {
-        errors.message = "El mensaje debe tener al menos 10 caracteres.";
+        errors.message = t("validation.message_min_length"); // Use translated key
     }
     return errors;
 };
 
 function Contact({ setFormStatus, onOpenSocialsModal, contactMethods = [], onOpenContactModal }) {
-
+    const { t } = useTranslation(); // ⬅️ Initialize hook
     const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
     const [formData, setFormData] = useState({
         name: "",
@@ -45,13 +47,13 @@ function Contact({ setFormStatus, onOpenSocialsModal, contactMethods = [], onOpe
         event.preventDefault();
         setErrors({});
         
-        const validationErrors = validateForm(formData);
+        const validationErrors = validateForm(formData, t);
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
             return;
         }
 
-        setFormStatus("Enviando...");
+        setFormStatus(t("notification.sending"));
         try {
             const response = await fetch(`${API_BASE_URL}/api/messages`, {
                 method: 'POST',
@@ -60,49 +62,49 @@ function Contact({ setFormStatus, onOpenSocialsModal, contactMethods = [], onOpe
             });
 
             if (response.ok) {
-                setFormStatus("¡Mensaje enviado con éxito!");
+                setFormStatus(t("notifications.success"));
                 setFormData({ name: "", email: "", message: "" });
             } else {
-                setFormStatus("Error: No se pudo enviar el mensaje.");
+                setFormStatus(t("notifications.error_send_fail"));
             }
         } catch (error) {
             console.error("Error sending message:", error);
-            setFormStatus("Error de red. Intenta de nuevo.");
+            setFormStatus(t("notifications.error_network"));
         }
     };
 
     return (
         <div className='cards-container' id='contact-card'>
-            <h3 className='contact-title'>Contáctanos</h3>
-            <p className='contact-subtitle-1'>Estamos listos para ayudarte.</p>
-            <p className='contact-subtitle-2'>Contáctanos por cualquiera de estos medios:</p>
+           <h3 className='contact-title'>{t('contact.title')}</h3>
+            <p className='contact-subtitle-1'>{t('contact.subtitle_1')}</p>
+            <p className='contact-subtitle-2'>{t('contact.subtitle_2')}</p>
             
             <div className='contact-card'>
-                <h3>Envíanos un mensaje</h3>
+                <h3>{t('contact.send_message_title')}</h3>
                 <form className='contact-input-items' onSubmit={handleSubmit} noValidate>
-                    <label htmlFor='name'>Nombre *</label>
+                    <label htmlFor='name'>{t('contact.name_label')}</label>
                     <input 
                        type='text' 
                        id='name'
                        value={formData.name}
                        onChange={handleChange}
-                       placeholder="Nombre..."
+                       placeholder={t('contact.name_placeholder')}
                        className={errors.name ? 'input-error' : ''}
                     />
                     {errors.name && <small className="error-message">{errors.name}</small>}
 
-                    <label htmlFor='email'>Correo Electrónico *</label>
+                    <label htmlFor='email'>{t('contact.email_label')}</label>
                     <input 
                        type='email' 
                        id='email'
                        value={formData.email}
                        onChange={handleChange}
-                       placeholder="correo@ejemplo.com"
+                       placeholder={t('contact.email_placeholder')}
                        className={errors.email ? 'input-error' : ''}
                     />
                     {errors.email && <small className="error-message">{errors.email}</small>}
 
-                    <label htmlFor='message'>Mensaje *</label>
+                    <label htmlFor='message'>{t('contact.message_label')}</label>
                     <div className="char-counter-wrapper">
                         <textarea 
                           id="message" 
@@ -111,7 +113,7 @@ function Contact({ setFormStatus, onOpenSocialsModal, contactMethods = [], onOpe
                           maxLength={maxLength}
                           value={formData.message} 
                           onChange={handleChange} 
-                          placeholder="Escribe tu mensaje y nos contactaremos lo más pronto posible."
+                          placeholder={t('contact.message_placeholder')}
                           className={errors.message ? 'input-error' : ''}
                         />
                         <small 
@@ -125,7 +127,7 @@ function Contact({ setFormStatus, onOpenSocialsModal, contactMethods = [], onOpe
 
                     <button className='send-message-button' type="submit">
                         <BsSend className='icon-send'/>
-                        <div className="button-text">Enviar Mensaje</div>
+                        <div className="button-text">{t('contact.send_button')}</div>
                     </button>
                 </form>
             </div>
@@ -141,7 +143,7 @@ function Contact({ setFormStatus, onOpenSocialsModal, contactMethods = [], onOpe
                         </linearGradient>
                     </defs>
                 </svg>
-                <h3 className="contact-methods-title">Información de Contacto</h3>
+                <h3 className="contact-methods-title">{t('contact.info_title')}</h3>
                 
                  {contactMethods.map(method => (
                 <div 
@@ -165,7 +167,7 @@ function Contact({ setFormStatus, onOpenSocialsModal, contactMethods = [], onOpe
                     <MdShare />
                     </a>
                     <div className="contact-info">
-                        <h4>Redes Sociales</h4>
+                        <h4>{t('method.social')}</h4>
                         <a className="social-icons">
                             <FaFacebook className='facebook-icon' />
                             <span className="instagram-gradient-icon">
@@ -179,19 +181,21 @@ function Contact({ setFormStatus, onOpenSocialsModal, contactMethods = [], onOpe
                 <div className="contact-method office-hours" id="office-hours">
                     <a className="office-hours-title">
                         <FaRegClock className="office-hours-icon" />
-                        <h3>Horarios de Atención</h3>
+                        <h3>{t('contact.office_title')}</h3>
                     </a>
 
                     <div className="office-hours-container" >
                         <div className="weekdays">
-                            <h4>Lunes - Viernes:</h4>
-                            <h4>Sábados:</h4>
-                            <h4>Domingos:</h4>
+                            {/* ⬇️ Translate Days of the Week ⬇️ */}
+                            <h4>{t('contact.weekdays_label')}</h4>
+                            <h4>{t('contact.saturdays_label')}</h4>
+                            <h4>{t('contact.sundays_label')}</h4>
                         </div>
                         <div className="operations-time">
-                            <h4>8:00 AM - 6:00 PM</h4>
-                            <h4>8:00 AM - 6:00 PM</h4>
-                            <h4>Emergencias</h4>
+                            {/* ⬇️ Translate Times (Time should be localized if necessary) ⬇️ */}
+                            <h4>{t('contact.time_weekdays')}</h4>
+                            <h4>{t('contact.time_saturdays')}</h4>
+                            <h4>{t('contact.time_sundays')}</h4>
                         </div>
                     </div>
                 </div>

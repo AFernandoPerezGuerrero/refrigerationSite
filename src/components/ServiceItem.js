@@ -1,9 +1,12 @@
 import React from 'react';
 import "../styles/ServiceItem.css"; 
 import DynamicIcon from './DynamicIcon'; 
+import { useTranslation } from 'react-i18next'; // ⬅️ NEW IMPORT
+
 
 function ServiceItem({ service, onOpenModal }) {
-  
+  const { t } = useTranslation(); // ⬅️ Initialize hook
+
   const { 
     name, 
     description, 
@@ -40,7 +43,7 @@ function ServiceItem({ service, onOpenModal }) {
           className="solicitar-servicio-button" 
           onClick={() => onOpenModal(service)}
         >
-          Solicitar Servicio
+          {t("item.button")}
         </button>
       </div>
     </div>

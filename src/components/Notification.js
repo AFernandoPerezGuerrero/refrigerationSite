@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Notification.css';
+import { useTranslation } from 'react-i18next';
 
 function Notification({ onOpenNewsletterModal }) {
+      const { t } = useTranslation(); // ⬅️ Initialize hook
+
   const [status, setStatus] = useState('hidden');
 
   
@@ -60,11 +63,11 @@ return (
 
       <div className="notification-content">
         <div className="notification-text">
-          <strong>¡Oferta Especial!</strong>
-          <p>Tu texto de promoción va aquí.</p>
+          <strong>{t("notification.title")}</strong>
+          <p>{t("notification.description")}</p>
         </div>
         
-        <button className="action-button" onClick={handleActionClick}>Ver Más</button>
+        <button className="action-button" onClick={handleActionClick}>{t("notification.button")}</button>
       </div>
     </div>
   );

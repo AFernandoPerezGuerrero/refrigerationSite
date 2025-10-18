@@ -1,0 +1,101 @@
+{
+  "header": {
+    "open_menu_label": "Abrir menú",
+    "nav_link_services": "Servicios",
+    "title_1": "COOLFIX",
+    "title_2": "Hogar e Industria" 
+  },
+  "ticker": {
+    "item_button": "Únete a nuestro newsletter para hacer seguimiento a tus equipos.",
+    "item_hours": "DISPONIBLES EN TODO MEDELLIN",
+    "item_services": "Servicios, mantenimiento y calidad 100% garantizada"
+  },
+  "menu": {
+    "services": "Servicios",
+    "contact_hours": "Contacto y Horarios",
+    "send_message": "Envíanos un mensaje",
+    "social_networks": "Redes Sociales",
+    "office_hours": "Horarios",
+    "about_us": "Sobre nosotros"
+  },
+  "body": {
+    "heading": "Expertos en Reparación y Mantenimiento",
+    "paragraph": "En CoolFix Hogar e Industria somos expertos en reparación y mantenimiento de neveras, lavadoras, secadoras, calentadores y equipos de refrigeración industrial y comercial. Servicio rápido, confiable y garantizado.",
+    "contact_button": "Contáctanos Ahora"
+  },
+  "catalog": {
+    "loading": "Cargando servicios...",
+    "header": "Nuestros Servicios",
+    "description": "Ofrecemos servicios especializados para equipos domésticos, industriales y comerciales."
+  },
+  "item": {
+    "button": "Solicitar Servicio"
+  },
+  "contact": {
+    "title": "Contáctanos",
+    "subtitle_1": "Estamos listos para ayudarte.",
+    "subtitle_2": "Contáctanos por cualquiera de estos medios:",
+    "send_message_title": "Envíanos un mensaje",
+    "name_label": "Nombre *",
+    "email_label": "Correo Electrónico *",
+    "message_label": "Mensaje *",
+    "name_placeholder": "Nombre...",
+    "email_placeholder": "correo@ejemplo.com",
+    "message_placeholder": "Escribe tu mensaje y nos contactaremos lo más pronto posible.",
+    "send_button": "Enviar Mensaje",
+    "info_title": "Información de Contacto",
+    "our_socials": "Nuestras Redes Sociales",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "call_modal_button":"+57 301 852 0511",
+    "whatsapp_modal_button":"+57 301 852 0511",
+    "email_modal_button": "coolfixh.i@gmail.com",
+    "modal_text": "Puedes contactarnos directamente a través de este medio:",
+    "office_title": "Horarios de Atención",
+    "weekdays_label": "Lunes - Viernes:",
+    "saturdays_label": "Sábados:",
+    "sundays_label": "Domingos:",
+    "time_weekdays": "8:00 AM - 6:00 PM",
+    "time_saturdays": "8:00 AM - 6:00 PM",
+    "time_sundays": "Emergencias"
+  },
+  "validation": {
+    "name_required": "El nombre es obligatorio.",
+    "email_required": "El correo es obligatorio.",
+    "email_invalid": "El formato del correo no es válido.",
+    "message_min_length": "El mensaje debe tener al menos 10 caracteres."
+  },
+  "notifications": {
+    "success": "¡Mensaje enviado con éxito!",
+    "error_send_fail": "Error: No se pudo enviar el mensaje.",
+    "error_network": "Error de red. Intenta de nuevo.",
+    "special_offer_title": "¡Oferta Especial!",
+    "special_offer_text": "Tu texto de promoción va aquí.",
+    "action_button": "Ver Más"
+  },
+  "notification": {
+    "title": "Suscríbete al Newsletter",
+    "description": "Compártenos tu correo electrónico para recibir ofertas y realizar seguimiento a tus equipos.",
+    "button": "Ver más"
+  },
+  "newsletter": {
+    "title": "Suscríbete a Nuestro Newsletter",
+    "description": "Recibe notificaciones sobre el estado de tus equipos y nuestras últimas ofertas.",
+    "input_label": "Tu correo electrónico"
+  },
+  "about": {
+    "info_text": "Somos especialistas en reparación, mantenimiento e instalación de equipos de refrigeración, lavandería y calefacción, con más de 15 años de experiencia. Atendemos línea doméstica, comercial e industrial, ofreciendo soluciones rápidas, confiables y garantizadas."
+  },
+  "footer": {
+    "coolfix": "CoolFix",
+    "hogar_industria": "Hogar e Industria",
+    "subtitle": "Expertos en reparación y mantenimiento de electrodomésticos",
+    "copyright": "© 2025 CoolFix Hogar e Industria. Todos los derechos reservados."
+  },
+  "method": {
+    "call": "Llamar",
+    "whatsapp": "WhatsApp",
+    "email": "Email",
+    "social": "Redes Sociales"
+  }
+}
