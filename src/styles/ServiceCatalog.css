@@ -7,6 +7,7 @@
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     scroll-margin-top: 10rem;
     margin-bottom: 2rem;
+    width: 100%;
 }
 
 .catalog-information {
@@ -15,7 +16,7 @@
     justify-content: center;
     align-items: center;
     align-content: center;
-    width: 25rem;
+    width: 23rem;
     height: 7rem;
 }
 
@@ -123,7 +124,7 @@
   }  
 
   .catalog-information {
-    width: 90%;
+    width: 100%;
   }
 
   .catalog-information h3 {
