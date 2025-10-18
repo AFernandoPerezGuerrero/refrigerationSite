@@ -159,7 +159,7 @@ useEffect(() => {
         <Ticker onOpenNewsletterModal={openNewsletterModal} />
       </header>
         
-      <a href="https://wa.me/TUNUMERO" className="corner-whatsapp-button" target="_blank" rel="noopener noreferrer">
+      <a href="https://wa.me/3018520511" className="corner-whatsapp-button" target="_blank" rel="noopener noreferrer">
         <FaWhatsapp />
       </a>
 
