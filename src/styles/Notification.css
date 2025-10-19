@@ -103,7 +103,8 @@
 @media screen and (min-width: 300px) and (max-width: 767px) {
   .notification-popup {
     width: 10rem;
-    height: 7rem;
+    height: 6rem;
+    min-height: fit-content;
   }
 
   .notification-content {
@@ -122,6 +123,7 @@
     font-size: 0.5rem;
     margin-top: 0.3rem;
     padding: 2px 4px;
+    margin-bottom: 0.5rem;
   }
 
   .close-button {

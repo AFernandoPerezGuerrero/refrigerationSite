@@ -48,39 +48,12 @@ const getFilteredServices = () => {
       return []; 
     }
 
+    // 1. Determine the required tag name (e.g., 'home' -> 'HOME')
+    const requiredTag = activeCategory.toUpperCase(); 
+
     return services.filter(service => {
-        // ⬇️ FIX: Use the 'name' property directly, as this holds the correct language content ⬇️
-        const displayedName = service.name; 
-        
-        if (!displayedName) return false;
-
-        // Convert to lowercase to ensure matching works regardless of case
-        const lowerCaseName = displayedName.toLowerCase(); 
-
-        // Check for keywords in the currently displayed language (ES or EN)
-        // We must include both English and Spanish keywords now, as the name changes language.
-        
-        // 1. HOME SERVICES Check
-        if (activeCategory === 'home') {
-            return lowerCaseName.includes('doméstica') || 
-                   lowerCaseName.includes('domestic') || 
-                   lowerCaseName.includes('calefacción') || 
-                   lowerCaseName.includes('heating') ||
-                   lowerCaseName.includes('cocina') ||
-                   lowerCaseName.includes('kitchen');
-        }
-
-        // 2. INDUSTRIAL SERVICES Check
-        if (activeCategory === 'industrial') {
-            return lowerCaseName.includes('industrial'); // Works for both languages
-        }
-
-        // 3. COMMERCIAL SERVICES Check
-        if (activeCategory === 'commercial') {
-            return lowerCaseName.includes('comercial') || 
-                   lowerCaseName.includes('commercial'); 
-        }
-        return false;
+        // ⬇️ FIX: Filter based purely on the database tag ⬇️
+        return service.category_tag === requiredTag;
     });
 };
 // ... (rest of component logic) ...

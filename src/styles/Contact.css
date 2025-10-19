@@ -285,33 +285,60 @@
 /**  ICONS  **/
 
 .contact-method #icon {
-    color: white;
-    font-size: 2rem;
-    padding: 1rem;
-    height: 2rem;
-    width: 2rem;
+    /* Use fixed dimensions for the circular area */
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    width: 3.5rem; 
+    height: 3.5rem;
     border-radius: 50%;
+    
+    /* Ensure the icon color defaults to white inside the circle */
+    color: white !important; 
+    padding: 0; /* No padding on the container */
 }
 
-.contact-method .call {
+/* 2. Apply Background Colors to the specific wrappers */
+
+#contact-method-call #icon {
     background-color: rgb(1, 1, 161);
+}
+
+#contact-method-whatsapp #icon {
+    background-color: #00bd1f; /* Use a solid color for the background */
+    /* Ensure the icon inside is white if it's not already */
+}
+
+#contact-method-email #icon {
+    background-color: #cf001c;
+}
+
+.contact-method .social#icon {
+    /* Set dimensions and background for the Social/Share icon */
+    background-color: #cf00b3; 
+}
+
+
+/* ------------------------------------------------------------- */
+/* 2. Target the SVG ICON inside to ensure it is sized correctly */
+/* ------------------------------------------------------------- */
+
+.contact-method #icon svg {
+    /* Set the icon size relative to the container, leaving room for the circle border */
+    width: 70%; /* Icon takes up 70% of the container */
+    height: 70%;
+    max-width: 100%;
+    padding: 0; 
+    
+    /* Remove any conflicting background/border-radius rules */
+    background-color: transparent;
+    border-radius: 0;
 }
 
 .contact-method .call h4 {
     color: rgb(1, 1, 161);
 }
 
-.contact-method .whatsapp {
-    background-color: #00bd1f;
-}
-
-.contact-method .email {
-    background-color: #cf001c;
-}
-
-.contact-method .social {
-    background-color: #cf00b3;
-}
 
 #contact-method-social .social-icons {
     display: flex;
@@ -390,9 +417,10 @@
 }
 
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 300px) and (max-width: 767px) {
   .contact-card {
     width: 80%;
+    min-width: 20rem;
     padding: 1rem;
   }
 
@@ -401,7 +429,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    
   }
 
   .cards-container h3 {
@@ -466,23 +494,22 @@
         justify-content: center;
         align-items: center;
         width: 80%;
-
+        min-width: 20rem;
     }
 
     .contact-method {
      width: 100%;
      padding: 1rem;
-     height: 2.5rem;
+     height: 5rem;
     }
 
     .contact-methods-title {
       margin-bottom: 1rem;
     }
 
-    .contact-method #icon {
-      font-size: 1rem;
-      width: 1rem;
-      height: 1rem;
+    .contact-method #icon svg {
+      width: 2rem;
+      height: 2rem;
     }
 
     .contact-method h4 {

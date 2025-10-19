@@ -29,17 +29,18 @@ const categorizeServices = (serviceList) => {
     };
 
     serviceList.forEach(service => {
-        // Use the untranslated (original Spanish) name for reliable filtering
-        const originalName = service.name_es || service.name; 
+        // ⬇️ NEW ROBUST LOGIC: Filter using the database tag ⬇️
+        const tag = service.category_tag; 
         
-        if (originalName && originalName.includes('Industrial')) {
+        if (tag === 'INDUSTRIAL') {
             categories.industrial.push(service);
-        } else if (originalName && (originalName.includes('Doméstica') || originalName.includes('Calefacción') || originalName.includes('Cocina'))) {
+        } else if (tag === 'HOME') {
             categories.home.push(service);
-        } else if (originalName && originalName.includes('Comercial')) {
+        } else if (tag === 'COMMERCIAL') {
             // Special handling for Línea Comercial
             categories.commercial = service; 
         }
+        // ⬆️ END ROBUST LOGIC ⬆️
     });
     return categories;
 };
@@ -103,7 +104,7 @@ const aboutUsData = {
         // Send language code as a query parameter
         const response = await fetch(`${API_BASE_URL}/api/services?lang=${currentLanguage}`); 
         const data = await response.json();
-        setServices(data);
+        console.log("Fetched Services Data for Categorization:", data);        setServices(data);
         setCategorizedServices(categorizeServices(data));
       } catch (error) {
         console.error("Error al obtener los servicios:", error);
@@ -116,6 +117,8 @@ const aboutUsData = {
     
   }, [API_BASE_URL, currentLanguage]);
 
+
+  
     useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -162,28 +165,6 @@ useEffect(() => {
     return () => clearTimeout(timer);
   }, [formStatus]);
 
-  const categorizeServices = (serviceList) => {
-    const categories = {
-        home: [],
-        industrial: [],
-        commercial: null // 'Línea Comercial' will be stored as a single object
-    };
-
-    serviceList.forEach(service => {
-        // Use the untranslated (original Spanish) name for reliable filtering
-        const originalName = service.name_es || service.name; 
-        
-        if (originalName && originalName.includes('Industrial')) {
-            categories.industrial.push(service);
-        } else if (originalName && (originalName.includes('Doméstica') || originalName.includes('Calefacción') || originalName.includes('Cocina'))) {
-            categories.home.push(service);
-        } else if (originalName && originalName.includes('Comercial')) {
-            // Special handling for Línea Comercial
-            categories.commercial = service; 
-        }
-    });
-    return categories;
-};
 
   return (
     <div className="App">
@@ -255,6 +236,7 @@ useEffect(() => {
       <NewsletterModal isOpen={isNewsletterModalOpen} onClose={closeNewsletterModal} />
     </div>
   );
+  
 }
 
 export default App;

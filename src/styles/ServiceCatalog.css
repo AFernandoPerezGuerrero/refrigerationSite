@@ -45,7 +45,8 @@
 }
 
 .catalog-buttons-container {
-  margin-top: 2rem auto;
+  margin-bottom: 1rem;
+  margin-top: 5rem;
   max-width: 390px;
   display: grid;
   align-items: center;
@@ -142,8 +143,14 @@
     grid-template-columns: 1fr;
     gap: 2.5rem;
     width: 90%;
-    align-items: center;
+    max-width: 20rem;
+    margin: 0 auto;
     padding: 1rem 0.5rem;
+  }
+
+  .catalog-buttons-container {
+    margin-bottom: 0rem;
+    margin-top: 0rem;
   }
 
   .service-animation-wrapper {
@@ -159,6 +166,8 @@
   }
 
   .catalog-container.animated-content {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -168,9 +177,28 @@
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
 .catalog-container {
-      grid-template-columns: 1fr;
-      gap: 3rem;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    width: 90%;
+    max-width: 20rem;
+    margin: 0 auto;
+    padding: 1rem 0.5rem;
     }
+
+    .service-animation-wrapper {
+    display: flex;
+    align-items: center; /* ⬅️ CRUCIAL FIX: Centers content horizontally */
+    width: 100%; /* Must be 100% in mobile/desktop context */
+    flex-direction: column;
+  }
+
+  .catalog-container.animated-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
 
     
 }
@@ -178,16 +206,34 @@
 @media (min-width: 1024px) and (max-width: 1280px){
 .catalog-container {
       grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      width: 80%;
-      height: 90%;
+      gap: 3rem;
+      width: 90%;
+      max-width: 20rem;
+      margin: 0 auto;
+      padding: 1rem 0.5rem;
     }
+
+    .service-animation-wrapper {
+    display: flex;
+    align-items: center; /* ⬅️ CRUCIAL FIX: Centers content horizontally */
+    width: 100%; /* Must be 100% in mobile/desktop context */
+    flex-direction: column;
+  }
+
+  .catalog-container.animated-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1440px) {
     .catalog-container {
       grid-template-columns: 1fr 1fr;
       gap: 3rem;
+    
     }
 }
 
@@ -230,10 +276,11 @@
     }
 }
 
-@media screen and (min-width: 1920px) and (max-width: 2900px) {
+@media screen and (min-width: 1920px) {
     .catalog-container {
       grid-template-columns: 1fr 1fr 1fr;
     }
 
     
 }
+

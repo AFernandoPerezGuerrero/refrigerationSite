@@ -105,7 +105,7 @@ const toggleDomestic = () => {
                 </button>
                 {/* ⬇️ Use conditional class to control visibility ⬇️ */}
                 <ul className={`sub-submenu ${isDomesticOpen ? 'open' : ''}`}> 
-                  {renderSubmenuItems(categorizedServices.home)}
+                {renderSubmenuItems(categorizedServices.home)} {/* ⬅️ Data is correctly passed */}
                 </ul>
               </li>
 
@@ -119,21 +119,20 @@ const toggleDomestic = () => {
                 </button>
                 {/* ⬇️ Use conditional class to control visibility ⬇️ */}
                 <ul className={`sub-submenu ${isIndustrialOpen ? 'open' : ''}`}>
-                  {renderSubmenuItems(categorizedServices.industrial)}
+                  {renderSubmenuItems(categorizedServices.industrial)} {/* ⬅️ Data is correctly passed */}
                 </ul>
               </li>
               
               {/* 3. COMMERCIAL LINE (Remains the same, but must still be inside the main submenu) */}
               {categorizedServices.commercial && (
-                <li>
-                  {/* Keep styling consistent with main menu buttons as requested */}
-                  <button 
-                    className="menu-item-button commercial" 
-                    onClick={() => handleServiceClick(categorizedServices.commercial)}>
-                    {categorizedServices.commercial.name} 
-                  </button>
-                  </li>
-                )}
+      <li>
+        <button 
+          className="menu-item-button commercial" 
+          onClick={() => handleServiceClick(categorizedServices.commercial)}>
+          {categorizedServices.commercial.name} {/* This name is already translated by the backend */}
+        </button>
+      </li>
+    )}
               </ul>
             </li>
 
