@@ -142,9 +142,8 @@
     grid-template-columns: 1fr;
     gap: 2.5rem;
     width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0.3rem;
+    margin: 0 auto;
+    padding: 1rem 0.5rem;
   }
 
   .service-animation-wrapper {
@@ -152,7 +151,11 @@
     align-items: center; /* ⬅️ CRUCIAL FIX: Centers content horizontally */
     width: 100%; /* Must be 100% in mobile/desktop context */
     flex-direction: column;
-    
+  }
+
+  .catalog-buttons-container {
+    width: 90%;
+    margin: 2rem auto;
   }
 
   .catalog-container.animated-content {
