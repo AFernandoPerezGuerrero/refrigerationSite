@@ -79,7 +79,7 @@
 }
 
 .category-button:focus {
-      outline: black;
+      outline: rgb(0, 0, 0);
 }
 
 .category-button:active {
