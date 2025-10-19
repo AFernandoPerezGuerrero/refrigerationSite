@@ -36,13 +36,11 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem;
-    justify-self: center;
     align-items: center;
-    justify-items: center;
-    margin-top: 4rem;
+    margin-left: auto;
+    margin-right: auto;
     width: 70%;
     height: 80%;
-    margin-bottom: 2rem;
     padding: 2rem;
 }
 
@@ -142,13 +140,14 @@
 
   .catalog-container {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
+    width: 90%;
+    margin-top: 0 auto;
     margin-top: 0.3rem;
-    justify-content: center;
-    align-items: center;
   }
 
   .service-animation-wrapper {
+    display: flex;
     align-items: center; /* ⬅️ CRUCIAL FIX: Centers content horizontally */
     width: 100%; /* Must be 100% in mobile/desktop context */
     flex-direction: column;
@@ -199,7 +198,7 @@
     }
 
     .catalog-buttons-container {
-      margin-top: 4rem;
+      margin-top: 7.5rem;
       display: grid;
       grid-template: 1fr;
       gap: 0.3rem;
