@@ -96,7 +96,11 @@ const getFilteredServices = () => {
         
         // Scenario A: Data is loading (show initial loading state from App.js)
         if (!services || services.length === 0) {
-            return <h3>{t("catalog.loading")}</h3>; 
+            return (
+              <div className='initial-load-placeholder'>
+                    <h3>{t("catalog.loading")}</h3>; 
+                    </div>
+            )
         }
 
         // Scenario B: No category is active (prompt user to click a button)

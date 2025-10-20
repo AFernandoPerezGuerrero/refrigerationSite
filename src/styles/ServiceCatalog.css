@@ -118,6 +118,17 @@
     
 }
 
+.initial-load-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Give it enough height to ensure FadeInSection can track it */
+    min-height: 250px; 
+    width: 100%;
+    margin-top: 20px;
+    color: #888;
+}
+
 
 @media screen and (min-width: 300px) and (max-width: 768px) {
   .catalog {
