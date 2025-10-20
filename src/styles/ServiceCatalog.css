@@ -142,8 +142,8 @@
   .catalog-container {
     grid-template-columns: 1fr;
     gap: 2.5rem;
-    width: 90%;
-    max-width: 20rem;
+    width: 95%;
+    max-width: 24rem;
     margin: 0 auto;
     padding: 1rem 0.5rem;
   }
