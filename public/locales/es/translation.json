@@ -12,8 +12,8 @@
   },
   "menu": {
     "services": "Servicios",
-    "services_domestic": "Servicios Domésticos",
-    "services_industrial": "Servicios Industriales",
+    "services_domestic": "Línea Doméstica",
+    "services_industrial": "Línea Industrial",
     "linea_comercial": "Línea Comercial",
     "contact_hours": "Contacto y Horarios",
     "send_message": "Envíanos un mensaje",
@@ -23,7 +23,7 @@
   },
   "body": {
     "heading": "Expertos en Reparación y Mantenimiento",
-    "paragraph": "En CoolFix Hogar e Industria somos expertos en reparación y mantenimiento de neveras, lavadoras, secadoras, calentadores y equipos de refrigeración industrial y comercial. Servicio rápido, confiable y garantizado.",
+    "paragraph": "En CoolFix Hogar e Industria somos especialistas en reparación, mantenimiento e instalación de equipos de refrigeración, lavandería y gasodomésticos. Atendemos líneas doméstica, comercial e industrial; con servicio técnico confiable y resultados garantizados.",
     "contact_button": "Contáctanos Ahora"
   },
   "catalog": {

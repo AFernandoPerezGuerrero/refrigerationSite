@@ -21,6 +21,7 @@
 
 .newsletter-button {
   background-color: rgb(0, 0, 197);
+  min-width: 3rem;
   color: white;
   border: none;
   padding: 0 24px;

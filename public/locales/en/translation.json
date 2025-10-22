@@ -12,8 +12,8 @@
   },
   "menu": {
     "services": "Services",
-    "services_domestic": "Domestic Services",
-    "services_industrial": "Industrial Services",
+    "services_domestic": "Domestic Line",
+    "services_industrial": "Industrial Line",
     "linea_comercial": "Commercial Line",
     "contact_hours": "Contact & Hours",
     "send_message": "Send us a Message",
@@ -23,7 +23,7 @@
   },
   "body": {
     "heading": "Experts in Repair and Maintenance",
-    "paragraph": "At CoolFix Home and Industry, we are experts in the repair and maintenance of refrigerators, washing machines, dryers, heaters, and industrial and commercial refrigeration equipment. Fast, reliable, and guaranteed service.",
+    "paragraph": "At CoolFix Home and Industry, we specialize in the repair, maintenance, and installation of refrigeration, laundry, and gas appliance equipment. We service the domestic, commercial, and industrial lines, providing reliable technical service and guaranteed results.",
     "contact_button": "Contact Us Now"
   },
   "catalog": {

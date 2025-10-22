@@ -85,7 +85,7 @@ function App() {
 
   const contactMethodsData = [
   { id: 'call', title: t('method.call'), icon: <FiPhone />, info: t("contact.call_modal_button"), href: 'tel:+573018520511' },
-    { id: 'whatsapp', title: t('method.whatsapp'), icon: <FiMessageCircle />, info: t("contact.whatsapp_modal_button"), href: 'https://wa.me/573018520511' },
+    { id: 'whatsapp', title: t('method.whatsapp'), icon: <FiMessageCircle />, info: t("contact.whatsapp_modal_button"), href: 'https://web.whatsapp.com/send?phone=573018520511' },
     { id: 'email', title: t('method.email'), icon: <MdOutlineEmail />, info: t("contact.email_modal_button"), href: 'mailto:coolfixh.i@gmail.com' }
 ];
 
@@ -185,7 +185,7 @@ useEffect(() => {
         <Ticker onOpenNewsletterModal={openNewsletterModal} />
       </header>
         
-      <a href="https://wa.me/3018520511" className="corner-whatsapp-button" target="_blank" rel="noopener noreferrer">
+      <a href="https://web.whatsapp.com/send?phone=573018520511" className="corner-whatsapp-button" target="_blank" rel="noopener noreferrer">
         <FaWhatsapp />
       </a>
 

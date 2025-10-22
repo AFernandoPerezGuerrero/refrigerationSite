@@ -12,7 +12,7 @@ function Body() {
                 <h1>{t("body.heading")}</h1>
                 <p>{t("body.paragraph")}</p>
                 <a  className='whatsapp-button-main'
-                    href="https://wa.me/3018520511"
+                    href="https://web.whatsapp.com/send?phone=573018520511"
                     target="_blank">
                         <FaWhatsapp className="logo-main"/>
                         <div>{t('body.contact_button')}</div>

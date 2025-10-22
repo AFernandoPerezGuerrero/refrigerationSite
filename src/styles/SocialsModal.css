@@ -1,7 +1,4 @@
 .modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
@@ -22,6 +19,10 @@
   position: relative;
   text-align: center;
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  overscroll-behavior: contain; 
+    
+    /* Optional: Improves performance on some mobile browsers */
+    -webkit-overflow-scrolling: touch;
 }
 
 .modal-content h2 {
@@ -93,6 +94,10 @@
 @media screen and (max-width: 767px) {
   .modal-content {
     width: 90%;
+    overscroll-behavior: contain; 
+    
+    /* Optional: Improves performance on some mobile browsers */
+    -webkit-overflow-scrolling: touch;
   }
 
   :is(.social-icon-link.instagram-gradient-icon, .social-icon-link.facebook-icon) {

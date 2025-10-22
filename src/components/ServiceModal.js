@@ -30,7 +30,7 @@ function ServiceModal({ service, onClose }) {
         <p>{service.description}</p>
         
         <a 
-          href="https://wa.me/3018520511"
+          href="https://web.whatsapp.com/send?phone=573018520511"
           className="modal-whatsapp-button"
           target="_blank" 
           rel="noopener noreferrer"
